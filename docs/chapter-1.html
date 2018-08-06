@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>nlme: R scripts</title>
+  <meta name="description" content="nlme: R scripts">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="nlme: R scripts" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="nlme: R scripts" />
+  
+  
+  
+
+
+
+<meta name="date" content="2018-08-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="chapter-2.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Intro</a></li>
+<li class="chapter" data-level="1" data-path="chapter-1.html"><a href="chapter-1.html"><i class="fa fa-check"></i><b>1</b> Chapter 1</a></li>
+<li class="chapter" data-level="2" data-path="chapter-2.html"><a href="chapter-2.html"><i class="fa fa-check"></i><b>2</b> Chapter 2</a></li>
+<li class="chapter" data-level="3" data-path="chapter-3.html"><a href="chapter-3.html"><i class="fa fa-check"></i><b>3</b> Chapter 3</a></li>
+<li class="chapter" data-level="4" data-path="chapter-4.html"><a href="chapter-4.html"><i class="fa fa-check"></i><b>4</b> Chapter 4</a></li>
+<li class="chapter" data-level="5" data-path="chapter-5.html"><a href="chapter-5.html"><i class="fa fa-check"></i><b>5</b> Chapter 5</a></li>
+<li class="chapter" data-level="6" data-path="chapter-6.html"><a href="chapter-6.html"><i class="fa fa-check"></i><b>6</b> Chapter 6</a></li>
+<li class="chapter" data-level="7" data-path="chapter-7.html"><a href="chapter-7.html"><i class="fa fa-check"></i><b>7</b> Chapter 7</a></li>
+<li class="chapter" data-level="8" data-path="chapter-8.html"><a href="chapter-8.html"><i class="fa fa-check"></i><b>8</b> Chapter 8</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">nlme: R scripts</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter-1" class="section level1">
+<h1><span class="header-section-number">1</span> Chapter 1</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">#-*- R -*-</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(nlme)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#pdf(file = &#39;ch01.pdf&#39;)</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">options</span>( <span class="dt">width =</span> <span class="dv">65</span>, <span class="dt">digits =</span> <span class="dv">5</span> )</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">options</span>( <span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="dt">unordered =</span> <span class="st">&quot;contr.helmert&quot;</span>, <span class="dt">ordered =</span> <span class="st">&quot;contr.poly&quot;</span>) )</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># Chapter 1    Linear Mixed-Effects Models: Basic Concepts and Examples</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># 1.1 A Simple Example of Random Effects</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">Rail</a></code></pre></div>
+<pre><code>## Grouped Data: travel ~ 1 | Rail
+##    Rail travel
+## 1     1     55
+## 2     1     53
+## 3     1     54
+## 4     2     26
+## 5     2     37
+## 6     2     32
+## 7     3     78
+## 8     3     91
+## 9     3     85
+## 10    4     92
+## 11    4    100
+## 12    4     96
+## 13    5     49
+## 14    5     51
+## 15    5     50
+## 16    6     80
+## 17    6     85
+## 18    6     83</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">fm1Rail.lm &lt;-<span class="st"> </span><span class="kw">lm</span>( travel <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> Rail )</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">fm1Rail.lm</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = travel ~ 1, data = Rail)
+## 
+## Coefficients:
+## (Intercept)  
+##        66.5</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">fm2Rail.lm &lt;-<span class="st"> </span><span class="kw">lm</span>( travel <span class="op">~</span><span class="st"> </span>Rail <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> Rail )</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">fm2Rail.lm</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = travel ~ Rail - 1, data = Rail)
+## 
+## Coefficients:
+## Rail2  Rail5  Rail1  Rail6  Rail3  Rail4  
+##  31.7   50.0   54.0   82.7   84.7   96.0</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">fm1Rail.lme &lt;-<span class="st"> </span><span class="kw">lme</span>(travel <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> Rail, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Rail)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">summary</span>( fm1Rail.lme )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: Rail 
+##      AIC    BIC  logLik
+##   128.18 130.68 -61.089
+## 
+## Random effects:
+##  Formula: ~1 | Rail
+##         (Intercept) Residual
+## StdDev:      24.805   4.0208
+## 
+## Fixed effects: travel ~ 1 
+##             Value Std.Error DF t-value p-value
+## (Intercept)  66.5    10.171 12  6.5382       0
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.618827 -0.282177  0.035693  0.219558  1.614377 
+## 
+## Number of Observations: 18
+## Number of Groups: 6</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">fm1Rail.lmeML &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Rail.lme, <span class="dt">method =</span> <span class="st">&quot;ML&quot;</span> )</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">summary</span>( fm1Rail.lmeML )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by maximum likelihood
+##  Data: Rail 
+##      AIC    BIC logLik
+##   134.56 137.23 -64.28
+## 
+## Random effects:
+##  Formula: ~1 | Rail
+##         (Intercept) Residual
+## StdDev:      22.624   4.0208
+## 
+## Fixed effects: travel ~ 1 
+##             Value Std.Error DF t-value p-value
+## (Intercept)  66.5     9.554 12  6.9604       0
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.610981 -0.288870  0.034542  0.213728  1.622223 
+## 
+## Number of Observations: 18
+## Number of Groups: 6</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">plot</span>( fm1Rail.lme )   <span class="co"># produces Figure 1.4</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">intervals</span>( fm1Rail.lme )</a></code></pre></div>
+<pre><code>## Approximate 95% confidence intervals
+## 
+##  Fixed effects:
+##              lower est.  upper
+## (Intercept) 44.339 66.5 88.661
+## attr(,&quot;label&quot;)
+## [1] &quot;Fixed effects:&quot;
+## 
+##  Random Effects:
+##   Level: Rail 
+##                  lower   est.  upper
+## sd((Intercept)) 13.274 24.805 46.353
+## 
+##  Within-group standard error:
+##  lower   est.  upper 
+## 2.6950 4.0208 5.9987</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">anova</span>( fm1Rail.lme )</a></code></pre></div>
+<pre><code>##             numDF denDF F-value p-value
+## (Intercept)     1    12  42.748  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># 1.2 A Randomized Block Design</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw">plot.design</span>( ergoStool )   <span class="co"># produces Figure 1.6</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">contrasts</span>( ergoStool<span class="op">$</span>Type )</a></code></pre></div>
+<pre><code>##    [,1] [,2] [,3]
+## T1   -1   -1   -1
+## T2    1   -1   -1
+## T3    0    2   -1
+## T4    0    0    3</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">ergoStool1 &lt;-<span class="st"> </span>ergoStool[ ergoStool<span class="op">$</span>Subject <span class="op">==</span><span class="st"> &quot;1&quot;</span>, ]</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">model.matrix</span>( effort <span class="op">~</span><span class="st"> </span>Type, ergoStool1 )   <span class="co"># X matrix for Subject 1</span></a></code></pre></div>
+<pre><code>##   (Intercept) Type1 Type2 Type3
+## 1           1    -1    -1    -1
+## 2           1     1    -1    -1
+## 3           1     0     2    -1
+## 4           1     0     0     3
+## attr(,&quot;assign&quot;)
+## [1] 0 1 1 1
+## attr(,&quot;contrasts&quot;)
+## attr(,&quot;contrasts&quot;)$Type
+## [1] &quot;contr.helmert&quot;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">fm1Stool &lt;-</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">  </span><span class="kw">lme</span>(effort <span class="op">~</span><span class="st"> </span>Type, <span class="dt">data =</span> ergoStool, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw">summary</span>( fm1Stool )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: ergoStool 
+##      AIC    BIC  logLik
+##   139.49 148.28 -63.743
+## 
+## Random effects:
+##  Formula: ~1 | Subject
+##         (Intercept) Residual
+## StdDev:      1.3325   1.1003
+## 
+## Fixed effects: effort ~ Type 
+##               Value Std.Error DF t-value p-value
+## (Intercept) 10.2500   0.48052 24 21.3309  0.0000
+## Type1        1.9444   0.25934 24  7.4976  0.0000
+## Type2        0.0926   0.14973 24  0.6184  0.5421
+## Type3       -0.3426   0.10588 24 -3.2358  0.0035
+##  Correlation: 
+##       (Intr) Type1 Type2
+## Type1 0                 
+## Type2 0      0          
+## Type3 0      0     0    
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.802003 -0.643166  0.057831  0.700997  1.631421 
+## 
+## Number of Observations: 36
+## Number of Groups: 9</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">anova</span>( fm1Stool )</a></code></pre></div>
+<pre><code>##             numDF denDF F-value p-value
+## (Intercept)     1    24  455.01  &lt;.0001
+## Type            3    24   22.36  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">options</span>( <span class="dt">contrasts =</span> <span class="kw">c</span>( <span class="dt">factor =</span> <span class="st">&quot;contr.treatment&quot;</span>,</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">                        <span class="dt">ordered =</span> <span class="st">&quot;contr.poly&quot;</span> ) )</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw">contrasts</span>( ergoStool<span class="op">$</span>Type )</a></code></pre></div>
+<pre><code>##    T2 T3 T4
+## T1  0  0  0
+## T2  1  0  0
+## T3  0  1  0
+## T4  0  0  1</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">fm2Stool &lt;-</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="st">  </span><span class="kw">lme</span>(effort <span class="op">~</span><span class="st"> </span>Type, <span class="dt">data =</span> ergoStool, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject)</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="kw">summary</span>( fm2Stool )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: ergoStool 
+##      AIC    BIC  logLik
+##   133.13 141.93 -60.565
+## 
+## Random effects:
+##  Formula: ~1 | Subject
+##         (Intercept) Residual
+## StdDev:      1.3325   1.1003
+## 
+## Fixed effects: effort ~ Type 
+##              Value Std.Error DF t-value p-value
+## (Intercept) 8.5556   0.57601 24 14.8531  0.0000
+## TypeT2      3.8889   0.51868 24  7.4976  0.0000
+## TypeT3      2.2222   0.51868 24  4.2843  0.0003
+## TypeT4      0.6667   0.51868 24  1.2853  0.2110
+##  Correlation: 
+##        (Intr) TypeT2 TypeT3
+## TypeT2 -0.45               
+## TypeT3 -0.45   0.50        
+## TypeT4 -0.45   0.50   0.50 
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.802003 -0.643166  0.057831  0.700997  1.631421 
+## 
+## Number of Observations: 36
+## Number of Groups: 9</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">anova</span>( fm2Stool )</a></code></pre></div>
+<pre><code>##             numDF denDF F-value p-value
+## (Intercept)     1    24  455.01  &lt;.0001
+## Type            3    24   22.36  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">model.matrix</span>( effort <span class="op">~</span><span class="st"> </span>Type <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, ergoStool1 )</a></code></pre></div>
+<pre><code>##   TypeT1 TypeT2 TypeT3 TypeT4
+## 1      1      0      0      0
+## 2      0      1      0      0
+## 3      0      0      1      0
+## 4      0      0      0      1
+## attr(,&quot;assign&quot;)
+## [1] 1 1 1 1
+## attr(,&quot;contrasts&quot;)
+## attr(,&quot;contrasts&quot;)$Type
+## [1] &quot;contr.treatment&quot;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">fm3Stool &lt;-</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="st"> </span><span class="kw">lme</span>(effort <span class="op">~</span><span class="st"> </span>Type <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> ergoStool, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject)</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="kw">summary</span>( fm3Stool )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: ergoStool 
+##      AIC    BIC  logLik
+##   133.13 141.93 -60.565
+## 
+## Random effects:
+##  Formula: ~1 | Subject
+##         (Intercept) Residual
+## StdDev:      1.3325   1.1003
+## 
+## Fixed effects: effort ~ Type - 1 
+##          Value Std.Error DF t-value p-value
+## TypeT1  8.5556   0.57601 24  14.853       0
+## TypeT2 12.4444   0.57601 24  21.605       0
+## TypeT3 10.7778   0.57601 24  18.711       0
+## TypeT4  9.2222   0.57601 24  16.011       0
+##  Correlation: 
+##        TypeT1 TypeT2 TypeT3
+## TypeT2 0.595               
+## TypeT3 0.595  0.595        
+## TypeT4 0.595  0.595  0.595 
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.802003 -0.643166  0.057831  0.700997  1.631421 
+## 
+## Number of Observations: 36
+## Number of Groups: 9</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">anova</span>( fm3Stool )</a></code></pre></div>
+<pre><code>##      numDF denDF F-value p-value
+## Type     4    24  130.52  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">intervals</span>( fm1Stool )</a></code></pre></div>
+<pre><code>## Approximate 95% confidence intervals
+## 
+##  Fixed effects:
+##                lower      est.    upper
+## (Intercept)  9.25825 10.250000 11.24175
+## Type1        1.40919  1.944444  2.47970
+## Type2       -0.21644  0.092593  0.40162
+## Type3       -0.56111 -0.342593 -0.12408
+## attr(,&quot;label&quot;)
+## [1] &quot;Fixed effects:&quot;
+## 
+##  Random Effects:
+##   Level: Subject 
+##                   lower   est. upper
+## sd((Intercept)) 0.74947 1.3325 2.369
+## 
+##  Within-group standard error:
+##   lower    est.   upper 
+## 0.82946 1.10029 1.45957</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">plot</span>( fm1Stool,   <span class="co"># produces Figure 1.8</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2">      <span class="dt">form =</span> <span class="kw">resid</span>(., <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>) <span class="op">~</span><span class="st"> </span><span class="kw">fitted</span>(.) <span class="op">|</span><span class="st"> </span>Subject,</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3">      <span class="dt">abline =</span> <span class="dv">0</span> )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-3.png" width="672" /></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># 1.3  Mixed-effects Models for Replicated, Blocked Designs</span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="kw">with</span>(Machines, <span class="kw">interaction.plot</span>( Machine, Worker, score, <span class="dt">las =</span> <span class="dv">1</span>))   <span class="co"># Figure 1.10</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-4.png" width="672" /></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">fm1Machine &lt;-</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="st">  </span><span class="kw">lme</span>( score <span class="op">~</span><span class="st"> </span>Machine, <span class="dt">data =</span> Machines, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Worker )</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">fm1Machine</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##   Data: Machines 
+##   Log-restricted-likelihood: -143.44
+##   Fixed: score ~ Machine 
+## (Intercept)    MachineB    MachineC 
+##     52.3556      7.9667     13.9167 
+## 
+## Random effects:
+##  Formula: ~1 | Worker
+##         (Intercept) Residual
+## StdDev:      5.1466   3.1616
+## 
+## Number of Observations: 54
+## Number of Groups: 6</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">fm2Machine &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Machine, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Worker<span class="op">/</span>Machine )</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">fm2Machine</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##   Data: Machines 
+##   Log-restricted-likelihood: -107.84
+##   Fixed: score ~ Machine 
+## (Intercept)    MachineB    MachineC 
+##     52.3556      7.9667     13.9167 
+## 
+## Random effects:
+##  Formula: ~1 | Worker
+##         (Intercept)
+## StdDev:       4.781
+## 
+##  Formula: ~1 | Machine %in% Worker
+##         (Intercept) Residual
+## StdDev:      3.7295  0.96158
+## 
+## Number of Observations: 54
+## Number of Groups: 
+##              Worker Machine %in% Worker 
+##                   6                  18</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">anova</span>( fm1Machine, fm2Machine )</a></code></pre></div>
+<pre><code>##            Model df    AIC    BIC  logLik   Test L.Ratio p-value
+## fm1Machine     1  5 296.88 306.54 -143.44                       
+## fm2Machine     2  6 227.69 239.28 -107.84 1 vs 2  71.191  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">  ## delete selected rows from the Machines data</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">MachinesUnbal &lt;-<span class="st"> </span>Machines[ <span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">12</span>,<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">27</span>,<span class="dv">33</span>), ]</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3">  ## check that the result is indeed unbalanced</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4"><span class="kw">table</span>(MachinesUnbal<span class="op">$</span>Machine, MachinesUnbal<span class="op">$</span>Worker)</a></code></pre></div>
+<pre><code>##    
+##     6 2 4 1 3 5
+##   A 3 2 2 1 1 3
+##   B 3 3 3 1 2 2
+##   C 3 3 3 3 3 3</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">fm1MachinesU &lt;-<span class="st"> </span><span class="kw">lme</span>( score <span class="op">~</span><span class="st"> </span>Machine, <span class="dt">data =</span> MachinesUnbal,</a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">  <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Worker<span class="op">/</span>Machine )</a>
+<a class="sourceLine" id="cb49-3" data-line-number="3">fm1MachinesU</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##   Data: MachinesUnbal 
+##   Log-restricted-likelihood: -90.936
+##   Fixed: score ~ Machine 
+## (Intercept)    MachineB    MachineC 
+##     52.3540      7.9624     13.9182 
+## 
+## Random effects:
+##  Formula: ~1 | Worker
+##         (Intercept)
+## StdDev:      4.7387
+## 
+##  Formula: ~1 | Machine %in% Worker
+##         (Intercept) Residual
+## StdDev:      3.7728   0.9332
+## 
+## Number of Observations: 44
+## Number of Groups: 
+##              Worker Machine %in% Worker 
+##                   6                  18</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">intervals</span>( fm1MachinesU )</a></code></pre></div>
+<pre><code>## Approximate 95% confidence intervals
+## 
+##  Fixed effects:
+##               lower    est.  upper
+## (Intercept) 47.2345 52.3540 57.474
+## MachineB     3.0278  7.9624 12.897
+## MachineC     8.9955 13.9182 18.841
+## attr(,&quot;label&quot;)
+## [1] &quot;Fixed effects:&quot;
+## 
+##  Random Effects:
+##   Level: Worker 
+##                  lower   est.  upper
+## sd((Intercept)) 2.2163 4.7387 10.132
+##   Level: Machine 
+##                  lower   est.  upper
+## sd((Intercept)) 2.4092 3.7728 5.9083
+## 
+##  Within-group standard error:
+##   lower    est.   upper 
+## 0.71136 0.93320 1.22424</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">fm4Stool &lt;-<span class="st"> </span><span class="kw">lme</span>( effort <span class="op">~</span><span class="st"> </span>Type, ergoStool, <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject<span class="op">/</span>Type )</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="cf">if</span> (<span class="kw">interactive</span>()) <span class="kw">intervals</span>( fm4Stool )</a>
+<a class="sourceLine" id="cb53-3" data-line-number="3">(fm1Stool<span class="op">$</span>sigma)<span class="op">^</span><span class="dv">2</span></a></code></pre></div>
+<pre><code>## [1] 1.2106</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">(fm4Stool<span class="op">$</span>sigma)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.79621</span><span class="op">^</span><span class="dv">2</span></a></code></pre></div>
+<pre><code>## [1] 0.84554</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">Machine1 &lt;-<span class="st"> </span>Machines[ Machines<span class="op">$</span>Worker <span class="op">==</span><span class="st"> &quot;1&quot;</span>, ]</a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"><span class="kw">model.matrix</span>( score <span class="op">~</span><span class="st"> </span>Machine, Machine1 )   <span class="co"># fixed-effects X_i</span></a></code></pre></div>
+<pre><code>##    (Intercept) MachineB MachineC
+## 1            1        0        0
+## 2            1        0        0
+## 3            1        0        0
+## 19           1        1        0
+## 20           1        1        0
+## 21           1        1        0
+## 37           1        0        1
+## 38           1        0        1
+## 39           1        0        1
+## attr(,&quot;assign&quot;)
+## [1] 0 1 1
+## attr(,&quot;contrasts&quot;)
+## attr(,&quot;contrasts&quot;)$Machine
+## [1] &quot;contr.treatment&quot;</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">model.matrix</span>( <span class="op">~</span><span class="st"> </span>Machine <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, Machine1 )   <span class="co"># random-effects Z_i</span></a></code></pre></div>
+<pre><code>##    MachineA MachineB MachineC
+## 1         1        0        0
+## 2         1        0        0
+## 3         1        0        0
+## 19        0        1        0
+## 20        0        1        0
+## 21        0        1        0
+## 37        0        0        1
+## 38        0        0        1
+## 39        0        0        1
+## attr(,&quot;assign&quot;)
+## [1] 1 1 1
+## attr(,&quot;contrasts&quot;)
+## attr(,&quot;contrasts&quot;)$Machine
+## [1] &quot;contr.treatment&quot;</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">fm3Machine &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Machine, <span class="dt">random =</span> <span class="op">~</span>Machine <span class="op">-</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span>Worker)</a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">summary</span>( fm3Machine )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: Machines 
+##      AIC    BIC  logLik
+##   228.31 247.63 -104.16
+## 
+## Random effects:
+##  Formula: ~Machine - 1 | Worker
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##          StdDev  Corr         
+## MachineA 4.07928 MachnA MachnB
+## MachineB 8.62529 0.803        
+## MachineC 4.38948 0.623  0.771 
+## Residual 0.96158              
+## 
+## Fixed effects: score ~ Machine 
+##              Value Std.Error DF t-value p-value
+## (Intercept) 52.356    1.6807 46 31.1508  0.0000
+## MachineB     7.967    2.4209 46  3.2909  0.0019
+## MachineC    13.917    1.5401 46  9.0362  0.0000
+##  Correlation: 
+##          (Intr) MachnB
+## MachineB  0.463       
+## MachineC -0.374  0.301
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -2.393540 -0.513776  0.026908  0.472455  2.533387 
+## 
+## Number of Observations: 54
+## Number of Groups: 6</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">anova</span>( fm1Machine, fm2Machine, fm3Machine )</a></code></pre></div>
+<pre><code>##            Model df    AIC    BIC  logLik   Test L.Ratio p-value
+## fm1Machine     1  5 296.88 306.54 -143.44                       
+## fm2Machine     2  6 227.69 239.28 -107.84 1 vs 2  71.191  &lt;.0001
+## fm3Machine     3 10 228.31 247.63 -104.16 2 vs 3   7.376  0.1173</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># 1.4 An Analysis of Covariance Model</span></a>
+<a class="sourceLine" id="cb65-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb65-3" data-line-number="3"><span class="kw">names</span>( Orthodont )</a></code></pre></div>
+<pre><code>## [1] &quot;distance&quot; &quot;age&quot;      &quot;Subject&quot;  &quot;Sex&quot;</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">levels</span>( Orthodont<span class="op">$</span>Sex )</a></code></pre></div>
+<pre><code>## [1] &quot;Male&quot;   &quot;Female&quot;</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">OrthoFem &lt;-<span class="st"> </span>Orthodont[ Orthodont<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>, ]</a>
+<a class="sourceLine" id="cb69-2" data-line-number="2">fm1OrthF.lis &lt;-<span class="st"> </span><span class="kw">lmList</span>( distance <span class="op">~</span><span class="st"> </span>age, <span class="dt">data =</span> OrthoFem )</a>
+<a class="sourceLine" id="cb69-3" data-line-number="3"><span class="kw">coef</span>( fm1OrthF.lis )</a></code></pre></div>
+<pre><code>##     (Intercept)   age
+## F10       13.55 0.450
+## F09       18.10 0.275
+## F06       17.00 0.375
+## F01       17.25 0.375
+## F05       19.60 0.275
+## F07       16.95 0.550
+## F02       14.20 0.800
+## F08       21.45 0.175
+## F03       14.40 0.850
+## F04       19.65 0.475
+## F11       18.95 0.675</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="kw">intervals</span>( fm1OrthF.lis )</a></code></pre></div>
+<pre><code>## , , (Intercept)
+## 
+##      lower  est.  upper
+## F10 10.071 13.55 17.029
+## F09 14.621 18.10 21.579
+## F06 13.521 17.00 20.479
+## F01 13.771 17.25 20.729
+## F05 16.121 19.60 23.079
+## F07 13.471 16.95 20.429
+## F02 10.721 14.20 17.679
+## F08 17.971 21.45 24.929
+## F03 10.921 14.40 17.879
+## F04 16.171 19.65 23.129
+## F11 15.471 18.95 22.429
+## 
+## , , age
+## 
+##       lower  est.  upper
+## F10  0.1401 0.450 0.7599
+## F09 -0.0349 0.275 0.5849
+## F06  0.0651 0.375 0.6849
+## F01  0.0651 0.375 0.6849
+## F05 -0.0349 0.275 0.5849
+## F07  0.2401 0.550 0.8599
+## F02  0.4901 0.800 1.1099
+## F08 -0.1349 0.175 0.4849
+## F03  0.5401 0.850 1.1599
+## F04  0.1651 0.475 0.7849
+## F11  0.3651 0.675 0.9849</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">plot</span>( <span class="kw">intervals</span> ( fm1OrthF.lis ) )   <span class="co"># produces Figure 1.12</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-5.png" width="672" /></p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">fm2OrthF.lis &lt;-<span class="st"> </span><span class="kw">update</span>( fm1OrthF.lis, distance <span class="op">~</span><span class="st"> </span><span class="kw">I</span>( age <span class="op">-</span><span class="st"> </span><span class="dv">11</span> ) )</a>
+<a class="sourceLine" id="cb74-2" data-line-number="2"><span class="kw">plot</span>( <span class="kw">intervals</span>( fm2OrthF.lis ) )    <span class="co"># produces Figure 1.13</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-6.png" width="672" /></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">fm1OrthF &lt;-</a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"><span class="st">  </span><span class="kw">lme</span>( distance <span class="op">~</span><span class="st"> </span>age, <span class="dt">data =</span> OrthoFem, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject )</a>
+<a class="sourceLine" id="cb75-3" data-line-number="3"><span class="kw">summary</span>( fm1OrthF )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: OrthoFem 
+##      AIC    BIC  logLik
+##   149.22 156.17 -70.609
+## 
+## Random effects:
+##  Formula: ~1 | Subject
+##         (Intercept) Residual
+## StdDev:      2.0685  0.78003
+## 
+## Fixed effects: distance ~ age 
+##               Value Std.Error DF t-value p-value
+## (Intercept) 17.3727   0.85874 32 20.2304       0
+## age          0.4795   0.05259 32  9.1186       0
+##  Correlation: 
+##     (Intr)
+## age -0.674
+## 
+## Standardized Within-Group Residuals:
+##      Min       Q1      Med       Q3      Max 
+## -2.27365 -0.70902  0.17282  0.41221  1.63252 
+## 
+## Number of Observations: 44
+## Number of Groups: 11</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">fm1OrthFM &lt;-<span class="st"> </span><span class="kw">update</span>( fm1OrthF, <span class="dt">method =</span> <span class="st">&quot;ML&quot;</span> )</a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="kw">summary</span>( fm1OrthFM )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by maximum likelihood
+##  Data: OrthoFem 
+##      AIC    BIC  logLik
+##   146.03 153.17 -69.015
+## 
+## Random effects:
+##  Formula: ~1 | Subject
+##         (Intercept) Residual
+## StdDev:      1.9699  0.76812
+## 
+## Fixed effects: distance ~ age 
+##               Value Std.Error DF t-value p-value
+## (Intercept) 17.3727   0.85063 32 20.4234       0
+## age          0.4795   0.05301 32  9.0471       0
+##  Correlation: 
+##     (Intr)
+## age -0.685
+## 
+## Standardized Within-Group Residuals:
+##      Min       Q1      Med       Q3      Max 
+## -2.30562 -0.71924  0.17636  0.42580  1.66894 
+## 
+## Number of Observations: 44
+## Number of Groups: 11</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">fm2OrthF &lt;-<span class="st"> </span><span class="kw">update</span>( fm1OrthF, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span>age <span class="op">|</span><span class="st"> </span>Subject )</a>
+<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="kw">anova</span>( fm1OrthF, fm2OrthF )</a></code></pre></div>
+<pre><code>##          Model df    AIC    BIC  logLik   Test L.Ratio p-value
+## fm1OrthF     1  4 149.22 156.17 -70.609                       
+## fm2OrthF     2  6 149.43 159.85 -68.714 1 vs 2  3.7896  0.1503</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">random.effects</span>( fm1OrthF )</a></code></pre></div>
+<pre><code>##     (Intercept)
+## F10   -4.005329
+## F09   -1.470449
+## F06   -1.470449
+## F01   -1.229032
+## F05   -0.021947
+## F07    0.340179
+## F02    0.340179
+## F08    0.702304
+## F03    1.064430
+## F04    2.150807
+## F11    3.599309</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">ranef</span>( fm1OrthFM )</a></code></pre></div>
+<pre><code>##     (Intercept)
+## F10   -3.995835
+## F09   -1.466964
+## F06   -1.466964
+## F01   -1.226119
+## F05   -0.021895
+## F07    0.339372
+## F02    0.339372
+## F08    0.700640
+## F03    1.061907
+## F04    2.145709
+## F11    3.590778</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">coef</span>( fm1OrthF )</a></code></pre></div>
+<pre><code>##     (Intercept)     age
+## F10      13.367 0.47955
+## F09      15.902 0.47955
+## F06      15.902 0.47955
+## F01      16.144 0.47955
+## F05      17.351 0.47955
+## F07      17.713 0.47955
+## F02      17.713 0.47955
+## F08      18.075 0.47955
+## F03      18.437 0.47955
+## F04      19.524 0.47955
+## F11      20.972 0.47955</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">plot</span>( <span class="kw">compareFits</span>(<span class="kw">coef</span>(fm1OrthF), <span class="kw">coef</span>(fm1OrthFM)))   <span class="co"># Figure 1.15</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-7.png" width="672" /></p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">plot</span>( <span class="kw">augPred</span>(fm1OrthF), <span class="dt">aspect =</span> <span class="st">&quot;xy&quot;</span>, <span class="dt">grid =</span> <span class="ot">TRUE</span> )   <span class="co"># Figure 1.16</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-8.png" width="672" /></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># 1.5  Models for Nested Classification Factors</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb89-3" data-line-number="3">fm1Pixel &lt;-<span class="st"> </span><span class="kw">lme</span>( pixel <span class="op">~</span><span class="st"> </span>day <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(day<span class="op">^</span><span class="dv">2</span>), <span class="dt">data =</span> Pixel,</a>
+<a class="sourceLine" id="cb89-4" data-line-number="4">  <span class="dt">random =</span> <span class="kw">list</span>( <span class="dt">Dog =</span> <span class="op">~</span><span class="st"> </span>day, <span class="dt">Side =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> ) )</a>
+<a class="sourceLine" id="cb89-5" data-line-number="5"><span class="kw">intervals</span>( fm1Pixel )</a></code></pre></div>
+<pre><code>## Approximate 95% confidence intervals
+## 
+##  Fixed effects:
+##                 lower       est.     upper
+## (Intercept) 1053.0968 1073.33914 1093.5814
+## day            4.3797    6.12960    7.8795
+## I(day^2)      -0.4349   -0.36735   -0.2998
+## attr(,&quot;label&quot;)
+## [1] &quot;Fixed effects:&quot;
+## 
+##  Random Effects:
+##   Level: Dog 
+##                         lower     est.    upper
+## sd((Intercept))      15.92962 28.36990 50.52546
+## sd(day)               1.08150  1.84375  3.14324
+## cor((Intercept),day) -0.89435 -0.55472  0.19053
+##   Level: Side 
+##                  lower   est.  upper
+## sd((Intercept)) 10.417 16.824 27.172
+## 
+##  Within-group standard error:
+##   lower    est.   upper 
+##  7.6345  8.9896 10.5852</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">plot</span>( <span class="kw">augPred</span>( fm1Pixel ) )   <span class="co"># produces Figure 1.18</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-9.png" width="672" /></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">VarCorr</span>( fm1Pixel )</a></code></pre></div>
+<pre><code>##             Variance       StdDev  Corr  
+## Dog =       pdLogChol(day)               
+## (Intercept) 804.8514       28.3699 (Intr)
+## day           3.3994        1.8438 -0.555
+## Side =      pdLogChol(1)                 
+## (Intercept) 283.0572       16.8243       
+## Residual     80.8130        8.9896</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">summary</span>( fm1Pixel )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: Pixel 
+##      AIC    BIC  logLik
+##   841.21 861.97 -412.61
+## 
+## Random effects:
+##  Formula: ~day | Dog
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##             StdDev  Corr  
+## (Intercept) 28.3699 (Intr)
+## day          1.8438 -0.555
+## 
+##  Formula: ~1 | Side %in% Dog
+##         (Intercept) Residual
+## StdDev:      16.824   8.9896
+## 
+## Fixed effects: pixel ~ day + I(day^2) 
+##               Value Std.Error DF t-value p-value
+## (Intercept) 1073.34   10.1717 80 105.522       0
+## day            6.13    0.8793 80   6.971       0
+## I(day^2)      -0.37    0.0339 80 -10.822       0
+##  Correlation: 
+##          (Intr) day   
+## day      -0.517       
+## I(day^2)  0.186 -0.668
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -2.829057 -0.449181  0.025549  0.557216  2.751965 
+## 
+## Number of Observations: 102
+## Number of Groups: 
+##           Dog Side %in% Dog 
+##            10            20</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">fm2Pixel &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Pixel, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span>day <span class="op">|</span><span class="st"> </span>Dog)</a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="kw">anova</span>( fm1Pixel, fm2Pixel )</a></code></pre></div>
+<pre><code>##          Model df    AIC    BIC  logLik   Test L.Ratio p-value
+## fm1Pixel     1  8 841.21 861.97 -412.61                       
+## fm2Pixel     2  7 884.52 902.69 -435.26 1 vs 2  45.309  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">fm3Pixel &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Pixel, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Dog<span class="op">/</span>Side )</a>
+<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">anova</span>( fm1Pixel, fm3Pixel )</a></code></pre></div>
+<pre><code>##          Model df    AIC    BIC  logLik   Test L.Ratio p-value
+## fm1Pixel     1  8 841.21 861.97 -412.61                       
+## fm3Pixel     2  6 876.84 892.41 -432.42 1 vs 2  39.629  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">fm4Pixel &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Pixel, pixel <span class="op">~</span><span class="st"> </span>day <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(day<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>Side )</a>
+<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="kw">summary</span>( fm4Pixel )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: Pixel 
+##      AIC    BIC  logLik
+##   835.85 859.12 -408.93
+## 
+## Random effects:
+##  Formula: ~day | Dog
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##             StdDev  Corr  
+## (Intercept) 28.4636 (Intr)
+## day          1.8438 -0.553
+## 
+##  Formula: ~1 | Side %in% Dog
+##         (Intercept) Residual
+## StdDev:      16.507   8.9836
+## 
+## Fixed effects: pixel ~ day + I(day^2) + Side 
+##               Value Std.Error DF t-value p-value
+## (Intercept) 1077.95   10.8627 80  99.234  0.0000
+## day            6.13    0.8790 80   6.973  0.0000
+## I(day^2)      -0.37    0.0339 80 -10.829  0.0000
+## SideR         -9.22    7.6268  9  -1.209  0.2576
+##  Correlation: 
+##          (Intr) day    I(d^2)
+## day      -0.484              
+## I(day^2)  0.174 -0.667       
+## SideR    -0.351  0.000  0.000
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -2.809825 -0.471334  0.026103  0.541154  2.774701 
+## 
+## Number of Observations: 102
+## Number of Groups: 
+##           Dog Side %in% Dog 
+##            10            20</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co"># 1.6  A Split-Plot Experiment</span></a>
+<a class="sourceLine" id="cb102-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb102-3" data-line-number="3">fm1Oats &lt;-<span class="st"> </span><span class="kw">lme</span>( yield <span class="op">~</span><span class="st"> </span><span class="kw">ordered</span>(nitro) <span class="op">*</span><span class="st"> </span>Variety, <span class="dt">data =</span> Oats,</a>
+<a class="sourceLine" id="cb102-4" data-line-number="4">  <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Block<span class="op">/</span>Variety )</a>
+<a class="sourceLine" id="cb102-5" data-line-number="5"><span class="kw">anova</span>( fm1Oats )</a></code></pre></div>
+<pre><code>##                        numDF denDF F-value p-value
+## (Intercept)                1    45 245.143  &lt;.0001
+## ordered(nitro)             3    45  37.686  &lt;.0001
+## Variety                    2    10   1.485  0.2724
+## ordered(nitro):Variety     6    45   0.303  0.9322</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">fm2Oats &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Oats, yield <span class="op">~</span><span class="st"> </span><span class="kw">ordered</span>(nitro) <span class="op">+</span><span class="st"> </span>Variety )</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2"><span class="kw">anova</span>( fm2Oats )</a></code></pre></div>
+<pre><code>##                numDF denDF F-value p-value
+## (Intercept)        1    51 245.145  &lt;.0001
+## ordered(nitro)     3    51  41.053  &lt;.0001
+## Variety            2    10   1.485  0.2724</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">summary</span>( fm2Oats )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: Oats 
+##      AIC    BIC  logLik
+##   587.46 607.16 -284.73
+## 
+## Random effects:
+##  Formula: ~1 | Block
+##         (Intercept)
+## StdDev:      14.645
+## 
+##  Formula: ~1 | Variety %in% Block
+##         (Intercept) Residual
+## StdDev:      10.473    12.75
+## 
+## Fixed effects: yield ~ ordered(nitro) + Variety 
+##                     Value Std.Error DF t-value p-value
+## (Intercept)       104.500    7.7975 51 13.4017  0.0000
+## ordered(nitro).L   32.945    3.0052 51 10.9627  0.0000
+## ordered(nitro).Q   -5.167    3.0052 51 -1.7193  0.0916
+## ordered(nitro).C   -0.447    3.0052 51 -0.1488  0.8823
+## VarietyMarvellous   5.292    7.0789 10  0.7475  0.4720
+## VarietyVictory     -6.875    7.0789 10 -0.9712  0.3544
+##  Correlation: 
+##                   (Intr) or().L or().Q or().C VrtyMr
+## ordered(nitro).L   0.000                            
+## ordered(nitro).Q   0.000  0.000                     
+## ordered(nitro).C   0.000  0.000  0.000              
+## VarietyMarvellous -0.454  0.000  0.000  0.000       
+## VarietyVictory    -0.454  0.000  0.000  0.000  0.500
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.841341 -0.662797 -0.066943  0.638225  1.660668 
+## 
+## Number of Observations: 72
+## Number of Groups: 
+##              Block Variety %in% Block 
+##                  6                 18</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">fm3Oats &lt;-<span class="st"> </span><span class="kw">update</span>( fm1Oats, yield <span class="op">~</span><span class="st"> </span><span class="kw">ordered</span>( nitro ) )</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2"><span class="kw">summary</span>( fm3Oats )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: Oats 
+##      AIC    BIC logLik
+##   597.61 613.14 -291.8
+## 
+## Random effects:
+##  Formula: ~1 | Block
+##         (Intercept)
+## StdDev:      14.506
+## 
+##  Formula: ~1 | Variety %in% Block
+##         (Intercept) Residual
+## StdDev:      11.039    12.75
+## 
+## Fixed effects: yield ~ ordered(nitro) 
+##                    Value Std.Error DF t-value p-value
+## (Intercept)      103.972    6.6407 51 15.6569  0.0000
+## ordered(nitro).L  32.945    3.0052 51 10.9627  0.0000
+## ordered(nitro).Q  -5.167    3.0052 51 -1.7193  0.0916
+## ordered(nitro).C  -0.447    3.0052 51 -0.1488  0.8823
+##  Correlation: 
+##                  (Intr) or().L or().Q
+## ordered(nitro).L 0                   
+## ordered(nitro).Q 0      0            
+## ordered(nitro).C 0      0      0     
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.781556 -0.611689  0.022224  0.622007  1.681382 
+## 
+## Number of Observations: 72
+## Number of Groups: 
+##              Block Variety %in% Block 
+##                  6                 18</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">fm4Oats &lt;-</a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="st">  </span><span class="kw">lme</span>( yield <span class="op">~</span><span class="st"> </span>nitro, <span class="dt">data =</span> Oats, <span class="dt">random =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Block<span class="op">/</span>Variety )</a>
+<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="kw">summary</span>( fm4Oats )</a></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: Oats 
+##      AIC    BIC  logLik
+##   603.04 614.28 -296.52
+## 
+## Random effects:
+##  Formula: ~1 | Block
+##         (Intercept)
+## StdDev:      14.506
+## 
+##  Formula: ~1 | Variety %in% Block
+##         (Intercept) Residual
+## StdDev:      11.005   12.867
+## 
+## Fixed effects: yield ~ nitro 
+##              Value Std.Error DF t-value p-value
+## (Intercept) 81.872    6.9453 53  11.788       0
+## nitro       73.667    6.7815 53  10.863       0
+##  Correlation: 
+##       (Intr)
+## nitro -0.293
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -1.743808 -0.664752  0.017104  0.542988  1.802989 
+## 
+## Number of Observations: 72
+## Number of Groups: 
+##              Block Variety %in% Block 
+##                  6                 18</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="kw">VarCorr</span>( fm4Oats )</a></code></pre></div>
+<pre><code>##             Variance     StdDev
+## Block =     pdLogChol(1)       
+## (Intercept) 210.42       14.506
+## Variety =   pdLogChol(1)       
+## (Intercept) 121.10       11.005
+## Residual    165.56       12.867</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="kw">intervals</span>( fm4Oats )</a></code></pre></div>
+<pre><code>## Approximate 95% confidence intervals
+## 
+##  Fixed effects:
+##              lower   est.  upper
+## (Intercept) 67.942 81.872 95.803
+## nitro       60.065 73.667 87.269
+## attr(,&quot;label&quot;)
+## [1] &quot;Fixed effects:&quot;
+## 
+##  Random Effects:
+##   Level: Block 
+##                  lower   est.  upper
+## sd((Intercept)) 6.6089 14.506 31.839
+##   Level: Variety 
+##                  lower   est.  upper
+## sd((Intercept)) 6.4081 11.005 18.898
+## 
+##  Within-group standard error:
+##  lower   est.  upper 
+## 10.637 12.867 15.565</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">augPred</span>(fm4Oats), <span class="dt">aspect =</span> <span class="fl">2.5</span>, <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb116-2" data-line-number="2">     <span class="dt">between =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>))) <span class="co"># produces Figure 1.21</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-1-10.png" width="672" /></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="co"># cleanup</span></a>
+<a class="sourceLine" id="cb117-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb117-3" data-line-number="3"><span class="kw">proc.time</span>()</a></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    3.43    0.68    5.24</code></pre>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

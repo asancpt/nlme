@@ -1,8 +1,16 @@
+---
+title: "nlme: R scripts"
+date: "`r Sys.Date()`"
+---
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(error = TRUE, cache = TRUE, fig.path='assets/')
 #, results = 'asis')
 ```
 
+# Intro {-}
+
+nlme R scripts
 
 # Chapter 1
 
