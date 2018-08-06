@@ -1,0 +1,40 @@
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(error = TRUE, cache = TRUE, fig.path='assets/')
+```
+
+
+# Chapter 1
+
+```{r, code = readLines('R/ch01.R')}
+```
+
+# Chapter 2
+
+```{r, code = readLines('R/ch02.R')}
+```
+
+# Chapter 3
+
+```{r, code = readLines('R/ch03.R')}
+```
+
+# Chapter 4
+
+```{r, code = readLines('R/ch04.R')}
+```
+
+# Chapter 5
+
+```{r, code = readLines('R/ch05.R')}
+```
+
+# Chapter 6
+
+```{r, code = readLines('R/ch06.R')}
+```
+
+# Chapter 8
+
+```{r, code = readLines('R/ch08.R')}
+```
+

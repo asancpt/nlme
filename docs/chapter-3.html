@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>nlme.utf8.md</title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="nlme.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="nlme.utf8.md" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chapter-2.html">
+<link rel="next" href="chapter-4.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Chapter 1</a></li>
+<li class="chapter" data-level="2" data-path="chapter-2.html"><a href="chapter-2.html"><i class="fa fa-check"></i><b>2</b> Chapter 2</a></li>
+<li class="chapter" data-level="3" data-path="chapter-3.html"><a href="chapter-3.html"><i class="fa fa-check"></i><b>3</b> Chapter 3</a></li>
+<li class="chapter" data-level="4" data-path="chapter-4.html"><a href="chapter-4.html"><i class="fa fa-check"></i><b>4</b> Chapter 4</a></li>
+<li class="chapter" data-level="5" data-path="chapter-5.html"><a href="chapter-5.html"><i class="fa fa-check"></i><b>5</b> Chapter 5</a></li>
+<li class="chapter" data-level="6" data-path="chapter-6.html"><a href="chapter-6.html"><i class="fa fa-check"></i><b>6</b> Chapter 6</a></li>
+<li class="chapter" data-level="7" data-path="chapter-8.html"><a href="chapter-8.html"><i class="fa fa-check"></i><b>7</b> Chapter 8</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter-3" class="section level1">
+<h1><span class="header-section-number">3</span> Chapter 3</h1>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="co">#-*- R -*-</span></a>
+<a class="sourceLine" id="cb158-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb158-3" data-line-number="3"><span class="co"># initialization</span></a>
+<a class="sourceLine" id="cb158-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb158-5" data-line-number="5"><span class="kw">library</span>(nlme)</a>
+<a class="sourceLine" id="cb158-6" data-line-number="6"><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">65</span>, <span class="dt">digits =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb158-7" data-line-number="7"><span class="kw">options</span>(<span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="dt">unordered =</span> <span class="st">&quot;contr.helmert&quot;</span>, <span class="dt">ordered =</span> <span class="st">&quot;contr.poly&quot;</span>))</a>
+<a class="sourceLine" id="cb158-8" data-line-number="8"><span class="co">#pdf(file = &#39;ch03.pdf&#39;)</span></a>
+<a class="sourceLine" id="cb158-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb158-10" data-line-number="10"><span class="co"># Chapter 3    Describing the Structure of Grouped Data</span></a>
+<a class="sourceLine" id="cb158-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb158-12" data-line-number="12"><span class="co"># 3.1 The Display Formula and Its Components</span></a>
+<a class="sourceLine" id="cb158-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb158-14" data-line-number="14"><span class="kw">formula</span>( Rail )</a></code></pre></div>
+<pre><code>## travel ~ 1 | Rail</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">formula</span>( ergoStool )</a></code></pre></div>
+<pre><code>## effort ~ Type | Subject</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">formula</span>( Machines )</a></code></pre></div>
+<pre><code>## score ~ Machine | Worker</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="kw">formula</span>( Orthodont )</a></code></pre></div>
+<pre><code>## distance ~ age | Subject</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">formula</span>( Pixel )</a></code></pre></div>
+<pre><code>## pixel ~ day | Dog/Side</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="kw">formula</span>( Oats )</a></code></pre></div>
+<pre><code>## yield ~ nitro | Block</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1"><span class="kw">table</span>( Oxboys<span class="op">$</span>Subject )</a></code></pre></div>
+<pre><code>## 
+## 10 26 25  9  2  6  7 17 16 15  8 20  1 18  5 23 11 21  3 24 22 
+##  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9 
+## 12 13 14 19  4 
+##  9  9  9  9  9</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="kw">table</span>( <span class="kw">getGroups</span>( Oxboys ) )</a></code></pre></div>
+<pre><code>## 
+## 10 26 25  9  2  6  7 17 16 15  8 20  1 18  5 23 11 21  3 24 22 
+##  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9 
+## 12 13 14 19  4 
+##  9  9  9  9  9</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">table</span>( <span class="kw">getGroups</span>( Oxboys ) ) )  <span class="co"># a more concise result</span></a></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">table</span>( <span class="kw">getCovariate</span>( Oxboys ), <span class="kw">getGroups</span>( Oxboys ) ) )</a></code></pre></div>
+<pre><code>## [1] 1 0</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="kw">length</span>( <span class="kw">unique</span>( <span class="kw">getCovariate</span>( Oxboys ) ) )</a></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getGroups</span>(Pixel, <span class="dt">level =</span> <span class="dv">1</span>) )</a></code></pre></div>
+<pre><code>##  [1] 1  2  3  4  5  6  7  8  9  10
+## Levels: 1 10 2 3 4 5 6 7 8 9</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getGroups</span>(Pixel, <span class="dt">level =</span> <span class="dv">2</span>) )</a></code></pre></div>
+<pre><code>##  [1] 1/R  2/R  3/R  4/R  5/R  6/R  7/R  8/R  9/R  10/R 1/L  2/L 
+## [13] 3/L  4/L  5/L  6/L  7/L  8/L  9/L  10/L
+## 20 Levels: 1/R &lt; 2/R &lt; 3/R &lt; 4/R &lt; 5/R &lt; 6/R &lt; 7/R &lt; ... &lt; 10/L</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">Pixel.groups &lt;-<span class="st"> </span><span class="kw">getGroups</span>( Pixel, <span class="dt">level =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span> )</a>
+<a class="sourceLine" id="cb184-2" data-line-number="2"><span class="kw">class</span>( Pixel.groups )</a></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">names</span>( Pixel.groups )</a></code></pre></div>
+<pre><code>## [1] &quot;Dog&quot;  &quot;Side&quot;</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="kw">unique</span>( Pixel.groups[[<span class="st">&quot;Side&quot;</span>]] )</a></code></pre></div>
+<pre><code>## [1] R L
+## Levels: L R</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="kw">formula</span>( PBG )</a></code></pre></div>
+<pre><code>## deltaBP ~ dose | Rabbit</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">PBG.log &lt;-<span class="st"> </span><span class="kw">update</span>( PBG, <span class="dt">formula =</span> deltaBP <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(dose) <span class="op">|</span><span class="st"> </span>Rabbit )</a>
+<a class="sourceLine" id="cb192-2" data-line-number="2"><span class="kw">formula</span>(PBG.log)</a></code></pre></div>
+<pre><code>## deltaBP ~ log(dose) | Rabbit
+## &lt;environment: 0x00000000105833e0&gt;</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getCovariate</span>(PBG.log) )</a></code></pre></div>
+<pre><code>## [1] 1.8326 2.5257 3.2189 3.9120 4.6052 5.2983</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getCovariate</span>(PBG) )</a></code></pre></div>
+<pre><code>## [1]   6.25  12.50  25.00  50.00 100.00 200.00</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="co"># 3.2 Constructing groupedData Objects</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"><span class="co"># The next line is not from the book.</span></a>
+<a class="sourceLine" id="cb198-4" data-line-number="4"><span class="co"># It is added to ensure that the file is available</span></a>
+<a class="sourceLine" id="cb198-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb198-6" data-line-number="6"><span class="kw">write.table</span>( Oxboys, <span class="st">&quot;oxboys.dat&quot;</span> )</a>
+<a class="sourceLine" id="cb198-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb198-8" data-line-number="8">Oxboys.frm &lt;-<span class="st"> </span><span class="kw">read.table</span>( <span class="st">&quot;oxboys.dat&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span> )</a>
+<a class="sourceLine" id="cb198-9" data-line-number="9"><span class="kw">class</span>( Oxboys.frm )        <span class="co"># check the class of the result</span></a></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">dim</span>( Oxboys.frm )          <span class="co"># check the dimensions</span></a></code></pre></div>
+<pre><code>## [1] 234   4</code></pre>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1">Oxboys &lt;-<span class="st"> </span><span class="kw">groupedData</span>( height <span class="op">~</span><span class="st"> </span>age <span class="op">|</span><span class="st"> </span>Subject,</a>
+<a class="sourceLine" id="cb202-2" data-line-number="2">   <span class="dt">data =</span> <span class="kw">read.table</span>(<span class="st">&quot;oxboys.dat&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb202-3" data-line-number="3">   <span class="dt">labels =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;Centered age&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Height&quot;</span>),</a>
+<a class="sourceLine" id="cb202-4" data-line-number="4">   <span class="dt">units =</span> <span class="kw">list</span>(<span class="dt">y =</span> <span class="st">&quot;(cm)&quot;</span>) )</a>
+<a class="sourceLine" id="cb202-5" data-line-number="5">Oxboys                     <span class="co"># display the object</span></a></code></pre></div>
+<pre><code>## Grouped Data: height ~ age | Subject
+##     Subject     age height Occasion
+## 1         1 -1.0000 140.50        1
+## 2         1 -0.7479 143.40        2
+## 3         1 -0.4630 144.80        3
+## 4         1 -0.1643 147.10        4
+## 5         1 -0.0027 147.70        5
+## 6         1  0.2466 150.20        6
+## 7         1  0.5562 151.70        7
+## 8         1  0.7781 153.30        8
+## 9         1  0.9945 155.80        9
+## 10        2 -1.0000 136.90        1
+## 11        2 -0.7479 139.10        2
+## 12        2 -0.4630 140.10        3
+## 13        2 -0.1643 142.60        4
+## 14        2 -0.0027 143.20        5
+## 15        2  0.2466 144.00        6
+## 16        2  0.5562 145.80        7
+## 17        2  0.7781 146.80        8
+## 18        2  0.9945 148.30        9
+## 19        3 -1.0000 150.00        1
+## 20        3 -0.7479 152.10        2
+## 21        3 -0.4630 153.90        3
+## 22        3 -0.1643 155.80        4
+## 23        3 -0.0027 156.00        5
+## 24        3  0.2466 156.90        6
+## 25        3  0.5562 157.40        7
+## 26        3  0.7781 159.10        8
+## 27        3  0.9945 160.60        9
+## 28        4 -1.0000 155.70        1
+## 29        4 -0.7479 158.70        2
+## 30        4 -0.4630 160.60        3
+## 31        4 -0.1643 163.30        4
+## 32        4 -0.0027 164.40        5
+## 33        4  0.2466 167.30        6
+## 34        4  0.5562 170.70        7
+## 35        4  0.7781 172.00        8
+## 36        4  0.9945 174.80        9
+## 37        5 -1.0000 145.80        1
+## 38        5 -0.7479 147.30        2
+## 39        5 -0.4493 148.70        3
+## 40        5 -0.1643 149.78        4
+## 41        5 -0.0027 150.22        5
+## 42        5  0.2466 152.50        6
+## 43        5  0.5562 154.80        7
+## 44        5  0.7781 156.40        8
+## 45        5  0.9973 158.70        9
+## 46        6 -1.0000 142.40        1
+## 47        6 -0.7479 143.80        2
+## 48        6 -0.4630 145.20        3
+## 49        6 -0.1643 146.30        4
+## 50        6 -0.0027 147.10        5
+## 51        6  0.2466 148.10        6
+## 52        6  0.5562 148.90        7
+## 53        6  0.7781 149.10        8
+## 54        6  0.9945 151.00        9
+## 55        7 -1.0000 141.30        1
+## 56        7 -0.7479 142.40        2
+## 57        7 -0.4493 144.30        3
+## 58        7 -0.1643 145.20        4
+## 59        7  0.0000 146.10        5
+## 60        7  0.2466 146.80        6
+## 61        7  0.5562 147.90        7
+## 62        7  0.7945 150.50        8
+## 63        7  0.9945 151.80        9
+## 64        8 -1.0000 141.70        1
+## 65        8 -0.7479 143.70        2
+## 66        8 -0.4630 145.10        3
+## 67        8 -0.1643 147.90        4
+## 68        8 -0.0027 148.10        5
+## 69        8  0.2466 149.60        6
+## 70        8  0.5562 150.99        7
+## 71        8  0.7945 154.10        8
+## 72        8  1.0055 154.90        9
+## 73        9 -1.0000 132.70        1
+## 74        9 -0.7479 134.10        2
+## 75        9 -0.4493 135.30        3
+## 76        9 -0.1643 136.60        4
+## 77        9 -0.0027 137.50        5
+## 78        9  0.2466 139.10        6
+## 79        9  0.5562 140.90        7
+## 80        9  0.7945 143.70        8
+## 81        9  0.9945 144.70        9
+## 82       10 -1.0000 126.20        1
+## 83       10 -0.7479 128.20        2
+## 84       10 -0.4630 129.00        3
+## 85       10 -0.1643 129.40        4
+## 86       10 -0.0027 129.59        5
+## 87       10  0.2466 130.60        6
+## 88       10  0.5562 132.50        7
+## 89       10  0.7781 133.40        8
+## 90       10  0.9945 134.20        9
+## 91       11 -1.0000 142.50        1
+## 92       11 -0.7479 143.80        2
+## 93       11 -0.4630 145.60        3
+## 94       11 -0.1643 148.30        4
+## 95       11 -0.0027 149.40        5
+## 96       11  0.2466 151.60        6
+## 97       11  0.5562 154.80        7
+## 98       11  0.7781 156.90        8
+## 99       11  0.9945 159.20        9
+## 100      12 -1.0000 149.90        1
+## 101      12 -0.7479 151.70        2
+## 102      12 -0.4630 153.30        3
+## 103      12 -0.1643 156.10        4
+## 104      12  0.0000 156.70        5
+## 105      12  0.2466 157.80        6
+## 106      12  0.5562 160.70        7
+## 107      12  0.7781 162.70        8
+## 108      12  0.9945 163.80        9
+## 109      13 -1.0000 148.90        1
+## 110      13 -0.7150 149.80        2
+## 111      13 -0.4630 151.70        3
+## 112      13 -0.1643 154.40        4
+## 113      13 -0.0027 155.50        5
+## 114      13  0.2466 156.40        6
+## 115      13  0.5562 161.40        7
+## 116      13  0.7781 163.90        8
+## 117      13  0.9945 164.60        9
+## 118      14 -1.0000 151.60        1
+## 119      14 -0.7479 153.20        2
+## 120      14 -0.4630 155.20        3
+## 121      14 -0.1643 157.30        4
+## 122      14  0.0000 159.10        5
+## 123      14  0.2466 160.90        6
+## 124      14  0.5562 164.40        7
+## 125      14  0.7781 166.90        8
+## 126      14  0.9945 168.40        9
+## 127      15 -1.0000 137.50        1
+## 128      15 -0.7479 139.30        2
+## 129      15 -0.4630 140.90        3
+## 130      15 -0.1643 142.70        4
+## 131      15 -0.0027 144.20        5
+## 132      15  0.2466 145.70        6
+## 133      15  0.5562 147.09        7
+## 134      15  0.7781 150.20        8
+## 135      15  0.9945 152.30        9
+## 136      16 -1.0000 142.80        1
+## 137      16 -0.7479 144.90        2
+## 138      16 -0.4630 145.00        3
+## 139      16 -0.1643 146.70        4
+## 140      16 -0.0027 147.20        5
+## 141      16  0.2466 148.90        6
+## 142      16  0.5562 150.10        7
+## 143      16  0.7781 151.00        8
+## 144      16  0.9945 152.20        9
+## 145      17 -1.0000 134.90        1
+## 146      17 -0.7479 137.40        2
+## 147      17 -0.4630 138.20        3
+## 148      17 -0.1643 140.20        4
+## 149      17 -0.0027 143.60        5
+## 150      17  0.2466 144.20        6
+## 151      17  0.5562 147.90        7
+## 152      17  0.7781 150.30        8
+## 153      17  0.9945 151.80        9
+## 154      18 -1.0000 145.50        1
+## 155      18 -0.7479 146.20        2
+## 156      18 -0.4630 148.20        3
+## 157      18 -0.1643 150.30        4
+## 158      18 -0.0027 152.00        5
+## 159      18  0.2466 152.30        6
+## 160      18  0.5562 154.30        7
+## 161      18  0.7781 156.20        8
+## 162      18  0.9945 156.80        9
+## 163      19 -1.0000 156.90        1
+## 164      19 -0.7479 157.90        2
+## 165      19 -0.4630 160.30        3
+## 166      19 -0.1643 161.90        4
+## 167      19  0.0000 163.80        5
+## 168      19  0.2466 165.50        6
+## 169      19  0.5562 169.90        7
+## 170      19  0.7781 172.40        8
+## 171      19  0.9945 174.40        9
+## 172      20 -1.0000 146.50        1
+## 173      20 -0.7479 148.40        2
+## 174      20 -0.4630 149.30        3
+## 175      20 -0.1643 151.20        4
+## 176      20 -0.0027 152.10        5
+## 177      20  0.2466 152.40        6
+## 178      20  0.5562 153.90        7
+## 179      20  0.7781 154.90        8
+## 180      20  0.9945 155.40        9
+## 181      21 -1.0000 143.90        1
+## 182      21 -0.7479 145.10        2
+## 183      21 -0.4630 147.00        3
+## 184      21 -0.1643 149.20        4
+## 185      21 -0.0027 149.80        5
+## 186      21  0.2466 151.50        6
+## 187      21  0.5562 153.17        7
+## 188      21  0.7781 156.90        8
+## 189      21  0.9945 159.60        9
+## 190      22 -1.0000 147.40        1
+## 191      22 -0.7479 148.80        2
+## 192      22 -0.4630 150.10        3
+## 193      22 -0.1643 152.50        4
+## 194      22 -0.0027 154.70        5
+## 195      22  0.2466 156.00        6
+## 196      22  0.5562 158.40        7
+## 197      22  0.7781 161.50        8
+## 198      22  0.9945 163.30        9
+## 199      23 -1.0000 144.50        1
+## 200      23 -0.7479 146.00        2
+## 201      23 -0.4630 147.40        3
+## 202      23 -0.1643 149.20        4
+## 203      23 -0.0027 150.80        5
+## 204      23  0.2466 152.50        6
+## 205      23  0.5562 155.00        7
+## 206      23  0.7781 156.80        8
+## 207      23  0.9945 158.80        9
+## 208      24 -1.0000 147.80        1
+## 209      24 -0.7479 148.20        2
+## 210      24 -0.4630 150.20        3
+## 211      24 -0.1643 151.00        4
+## 212      24 -0.0027 152.20        5
+## 213      24  0.2466 153.60        6
+## 214      24  0.5562 155.80        7
+## 215      24  0.7781 159.20        8
+## 216      24  0.9945 161.60        9
+## 217      25 -1.0000 135.50        1
+## 218      25 -0.7479 136.60        2
+## 219      25 -0.4630 137.30        3
+## 220      25 -0.1643 138.20        4
+## 221      25 -0.0027 139.00        5
+## 222      25  0.2466 139.50        6
+## 223      25  0.5562 141.00        7
+## 224      25  0.7808 142.70        8
+## 225      25  0.9945 143.90        9
+## 226      26 -1.0000 132.20        1
+## 227      26 -0.7479 134.30        2
+## 228      26 -0.4630 135.10        3
+## 229      26 -0.1643 136.70        4
+## 230      26 -0.0027 138.40        5
+## 231      26  0.2466 138.90        6
+## 232      26  0.5562 141.80        7
+## 233      26  0.7781 142.60        8
+## 234      26  1.0055 143.10        9</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getGroups</span>( Oxboys ) )</a></code></pre></div>
+<pre><code>##  [1] 1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20
+## [21] 21 22 23 24 25 26
+## 26 Levels: 10 &lt; 26 &lt; 25 &lt; 9 &lt; 2 &lt; 6 &lt; 7 &lt; 17 &lt; 16 &lt; 15 &lt; ... &lt; 4</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">plot</span>( BodyWeight, <span class="dt">outer =</span> <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">aspect =</span> <span class="dv">3</span> )  <span class="co"># Figure 3.3</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">plot</span>( BodyWeight, <span class="dt">outer =</span> <span class="ot">TRUE</span>, <span class="dt">aspect =</span> <span class="dv">3</span> )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-2.png" width="672" /></p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1"><span class="kw">plot</span>( Soybean, <span class="dt">outer =</span> <span class="op">~</span><span class="st"> </span>Year <span class="op">*</span><span class="st"> </span>Variety )       <span class="co"># Figure 6.10</span></a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-3.png" width="672" /></p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="kw">plot</span>( Soybean, <span class="dt">outer =</span> <span class="op">~</span><span class="st"> </span>Variety <span class="op">*</span><span class="st"> </span>Year )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-4.png" width="672" /></p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1"><span class="kw">gsummary</span>( BodyWeight, <span class="dt">invar =</span> <span class="ot">TRUE</span> )</a></code></pre></div>
+<pre><code>##    Rat Diet
+## 2    2    1
+## 3    3    1
+## 4    4    1
+## 1    1    1
+## 8    8    1
+## 5    5    1
+## 6    6    1
+## 7    7    1
+## 11  11    2
+## 9    9    2
+## 10  10    2
+## 12  12    2
+## 13  13    3
+## 15  15    3
+## 14  14    3
+## 16  16    3</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1"><span class="kw">plot</span>( PBG, <span class="dt">inner =</span> <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">scales =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="kw">list</span>(<span class="dt">log =</span> <span class="dv">2</span>)))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-5.png" width="672" /></p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">ergoStool.mat &lt;-<span class="st"> </span><span class="kw">asTable</span>( ergoStool )</a>
+<a class="sourceLine" id="cb213-2" data-line-number="2">ergoStool.mat</a></code></pre></div>
+<pre><code>##    
+##     T1 T2 T3 T4
+##   8  7 11  8  7
+##   5  8 11  8  7
+##   4  7 11 10  9
+##   9  9 13 10  8
+##   6  9 11 11 10
+##   3  7 14 13  9
+##   7  8 12 12 11
+##   1 12 15 12 10
+##   2 10 14 13 12</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1">ergoStool.new &lt;-<span class="st"> </span><span class="kw">balancedGrouped</span>( effort <span class="op">~</span><span class="st"> </span>Type <span class="op">|</span><span class="st"> </span>Subject,</a>
+<a class="sourceLine" id="cb215-2" data-line-number="2">                                   <span class="dt">data =</span> ergoStool.mat )</a></code></pre></div>
+<pre><code>## Warning in balancedGrouped(effort ~ Type | Subject, data =
+## ergoStool.mat): 강제형변환에 의해 생성된 NA 입니다</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">ergoStool.new</a></code></pre></div>
+<pre><code>## Grouped Data: effort ~ Type | Subject
+##    Type Subject effort
+## 1    T1       8      7
+## 2    T2       8     11
+## 3    T3       8      8
+## 4    T4       8      7
+## 5    T1       5      8
+## 6    T2       5     11
+## 7    T3       5      8
+## 8    T4       5      7
+## 9    T1       4      7
+## 10   T2       4     11
+## 11   T3       4     10
+## 12   T4       4      9
+## 13   T1       9      9
+## 14   T2       9     13
+## 15   T3       9     10
+## 16   T4       9      8
+## 17   T1       6      9
+## 18   T2       6     11
+## 19   T3       6     11
+## 20   T4       6     10
+## 21   T1       3      7
+## 22   T2       3     14
+## 23   T3       3     13
+## 24   T4       3      9
+## 25   T1       7      8
+## 26   T2       7     12
+## 27   T3       7     12
+## 28   T4       7     11
+## 29   T1       1     12
+## 30   T2       1     15
+## 31   T3       1     12
+## 32   T4       1     10
+## 33   T1       2     10
+## 34   T2       2     14
+## 35   T3       2     13
+## 36   T4       2     12</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="co"># 3.3 Controlling Trellis Graphics Presentations of Grouped Data</span></a>
+<a class="sourceLine" id="cb219-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb219-3" data-line-number="3"><span class="kw">plot</span>(CO2, <span class="dt">layout=</span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>), <span class="dt">between=</span><span class="kw">list</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.5</span>,<span class="dv">0</span>,<span class="dv">0</span>)))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-6.png" width="672" /></p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">plot</span>( Spruce, <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb220-2" data-line-number="2">       <span class="dt">skip =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="ot">FALSE</span>, <span class="dv">27</span>), <span class="ot">TRUE</span>, <span class="kw">rep</span>(<span class="ot">FALSE</span>, <span class="dv">27</span>), <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb220-3" data-line-number="3">                <span class="kw">rep</span>(<span class="ot">FALSE</span>, <span class="dv">12</span>), <span class="kw">rep</span>(<span class="ot">TRUE</span>, <span class="dv">2</span>), <span class="kw">rep</span>(<span class="ot">FALSE</span>,<span class="dv">13</span>)) )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-7.png" width="672" /><img src="assets/unnamed-chunk-3-8.png" width="672" /><img src="assets/unnamed-chunk-3-9.png" width="672" /></p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">plot</span>( Spruce, <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb221-2" data-line-number="2">       <span class="dt">skip =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="ot">FALSE</span>, <span class="dv">66</span>), <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="kw">rep</span>(<span class="ot">FALSE</span>, <span class="dv">13</span>)) )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-10.png" width="672" /><img src="assets/unnamed-chunk-3-11.png" width="672" /><img src="assets/unnamed-chunk-3-12.png" width="672" /></p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getCovariate</span>(DNase) )</a></code></pre></div>
+<pre><code>## [1]  0.048828  0.195312  0.390625  0.781250  1.562500  3.125000
+## [7]  6.250000 12.500000</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="kw">log</span>( <span class="kw">unique</span>(<span class="kw">getCovariate</span>(DNase)), <span class="dv">2</span> )</a></code></pre></div>
+<pre><code>## [1] -4.35614 -2.35614 -1.35614 -0.35614  0.64386  1.64386
+## [7]  2.64386  3.64386</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">plot</span>( DNase, <span class="dt">layout=</span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>), <span class="dt">scales =</span> <span class="kw">list</span>(<span class="dt">x=</span><span class="kw">list</span>(<span class="dt">log=</span><span class="dv">2</span>)) )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-13.png" width="672" /></p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="kw">plot</span>(Pixel, <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb227-2" data-line-number="2">     <span class="dt">between =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>), <span class="dt">y =</span> <span class="fl">0.5</span>))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-14.png" width="672" /></p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="kw">plot</span>( Pixel, <span class="dt">displayLevel =</span> <span class="dv">1</span> )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-15.png" width="672" /></p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="kw">plot</span>( Wafer, <span class="dt">display =</span> <span class="dv">1</span>, <span class="dt">collapse =</span> <span class="dv">1</span> )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-16.png" width="672" /></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="kw">plot</span>( Wafer, <span class="dt">display =</span> <span class="dv">1</span>, <span class="dt">collapse =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb230-2" data-line-number="2">       <span class="dt">FUN =</span> <span class="cf">function</span>(x) <span class="kw">sqrt</span>(<span class="kw">var</span>(x)), <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">1</span>) )</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-3-17.png" width="672" /></p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="co"># 3.4 Summaries</span></a>
+<a class="sourceLine" id="cb231-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb231-3" data-line-number="3"><span class="kw">sapply</span>( ergoStool, data.class )</a></code></pre></div>
+<pre><code>##    effort      Type   Subject 
+## &quot;numeric&quot;  &quot;factor&quot; &quot;ordered&quot;</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="kw">gsummary</span>( Theoph, <span class="dt">inv =</span> <span class="ot">TRUE</span> )</a></code></pre></div>
+<pre><code>##    Subject   Wt Dose
+## 6        6 80.0 4.00
+## 7        7 64.6 4.95
+## 8        8 70.5 4.53
+## 11      11 65.0 4.92
+## 3        3 70.5 4.53
+## 2        2 72.4 4.40
+## 4        4 72.7 4.40
+## 9        9 86.4 3.10
+## 12      12 60.5 5.30
+## 10      10 58.2 5.50
+## 1        1 79.6 4.02
+## 5        5 54.6 5.86</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">gsummary</span>( Theoph, <span class="dt">omit =</span> <span class="ot">TRUE</span>, <span class="dt">inv =</span> <span class="ot">TRUE</span> )</a></code></pre></div>
+<pre><code>##      Wt Dose
+## 6  80.0 4.00
+## 7  64.6 4.95
+## 8  70.5 4.53
+## 11 65.0 4.92
+## 3  70.5 4.53
+## 2  72.4 4.40
+## 4  72.7 4.40
+## 9  86.4 3.10
+## 12 60.5 5.30
+## 10 58.2 5.50
+## 1  79.6 4.02
+## 5  54.6 5.86</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="kw">is.null</span>(<span class="kw">gsummary</span>(Theoph, <span class="dt">inv =</span> <span class="ot">TRUE</span>, <span class="dt">omit =</span> <span class="ot">TRUE</span>)) <span class="co"># invariants present</span></a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="kw">is.null</span>(<span class="kw">gsummary</span>(Oxboys, <span class="dt">inv =</span> <span class="ot">TRUE</span>, <span class="dt">omit =</span> <span class="ot">TRUE</span>)) <span class="co"># no invariants</span></a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="kw">gsummary</span>( Theoph )</a></code></pre></div>
+<pre><code>##    Subject   Wt Dose   Time   conc
+## 6        6 80.0 4.00 5.8882 3.5255
+## 7        7 64.6 4.95 5.8655 3.9109
+## 8        8 70.5 4.53 5.8900 4.2718
+## 11      11 65.0 4.92 5.8718 4.5109
+## 3        3 70.5 4.53 5.9073 5.0864
+## 2        2 72.4 4.40 5.8691 4.8236
+## 4        4 72.7 4.40 5.9400 4.9400
+## 9        9 86.4 3.10 5.8682 4.8936
+## 12      12 60.5 5.30 5.8764 5.4100
+## 10      10 58.2 5.50 5.9155 5.9309
+## 1        1 79.6 4.02 5.9500 6.4391
+## 5        5 54.6 5.86 5.8936 5.7827</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="kw">gsummary</span>( Theoph, <span class="dt">FUN =</span> max, <span class="dt">omit =</span> <span class="ot">TRUE</span> )</a></code></pre></div>
+<pre><code>##      Wt Dose  Time  conc
+## 6  80.0 4.00 23.85  6.44
+## 7  64.6 4.95 24.22  7.09
+## 8  70.5 4.53 24.12  7.56
+## 11 65.0 4.92 24.08  8.00
+## 3  70.5 4.53 24.17  8.20
+## 2  72.4 4.40 24.30  8.33
+## 4  72.7 4.40 24.65  8.60
+## 9  86.4 3.10 24.43  9.03
+## 12 60.5 5.30 24.15  9.75
+## 10 58.2 5.50 23.70 10.21
+## 1  79.6 4.02 24.37 10.50
+## 5  54.6 5.86 24.35 11.40</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1">Quin.sum &lt;-<span class="st"> </span><span class="kw">gsummary</span>( Quinidine, <span class="dt">omit =</span> <span class="ot">TRUE</span>, <span class="dt">FUN =</span> mean )</a>
+<a class="sourceLine" id="cb245-2" data-line-number="2"><span class="kw">dim</span>( Quin.sum )</a></code></pre></div>
+<pre><code>## [1] 136  13</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">Quin.sum[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ]</a></code></pre></div>
+<pre><code>##         time conc dose interval Age Height  Weight      Race
+## 109  30.2633   NA   NA       NA  70     67  58.000 Caucasian
+## 70    0.7500   NA   NA       NA  68     69  75.000 Caucasian
+## 23   52.0262   NA   NA       NA  75     72 108.000 Caucasian
+## 92    8.8571   NA   NA       NA  68     72  65.000 Caucasian
+## 111  18.1638   NA   NA       NA  68     66  56.000     Latin
+## 5    24.3750   NA   NA       NA  62     71  66.000 Caucasian
+## 18  196.8438   NA   NA       NA  87     69  85.375 Caucasian
+## 24   31.2500   NA   NA       NA  55     69  89.000     Latin
+## 2    12.2000   NA   NA       NA  58     69  85.000     Latin
+## 88    4.7900   NA   NA       NA  85     72  77.000 Caucasian
+##     Smoke Ethanol    Heart Creatinine   glyco
+## 109    no    none  No/Mild      &gt;= 50 0.46000
+## 70     no  former  No/Mild      &gt;= 50 1.15000
+## 23    yes    none  No/Mild      &gt;= 50 0.83875
+## 92    yes  former  No/Mild      &gt;= 50 1.27000
+## 111   yes  former  No/Mild      &gt;= 50 1.23000
+## 5     yes    none   Severe      &gt;= 50 1.39000
+## 18     no    none  No/Mild       &lt; 50 1.26000
+## 24     no  former  No/Mild      &gt;= 50 0.57000
+## 2      no current Moderate      &gt;= 50 0.82000
+## 88     no    none Moderate      &gt;= 50 0.61000</code></pre>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">Quinidine[Quinidine[[<span class="st">&quot;Subject&quot;</span>]] <span class="op">==</span><span class="st"> </span><span class="dv">3</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>]</a></code></pre></div>
+<pre><code>## Grouped Data: conc ~ time | Subject
+##    Subject    time conc dose interval Age Height Weight
+## 17       3    0.00   NA  201       NA  67     69     69
+## 18       3    8.00   NA  201       NA  67     69     69
+## 19       3   16.00   NA  201       NA  67     69     69
+## 20       3   24.00   NA  201       NA  67     69     69
+## 21       3   32.00   NA  201       NA  67     69     69
+## 22       3   41.25  2.4   NA       NA  67     69     69
+## 23       3  104.00   NA  201        8  67     69     69
+## 24       3  113.00  2.3   NA       NA  67     69     69
+## 25       3 3865.00   NA  201        6  67     69     62
+## 26       3 3873.00   NA  201       NA  67     69     62
+## 27       3 3881.00   NA  201       NA  67     69     62
+## 28       3 3889.00   NA  201       NA  67     69     62
+## 29       3 3897.00   NA  201       NA  67     69     62
+## 30       3 3900.00   NA   NA       NA  67     69     62
+## 31       3 3905.00   NA  201       NA  67     69     62
+## 32       3 3909.00  4.7   NA       NA  67     69     62
+## 33       3 4073.00   NA  201        8  67     69     62</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1">Quin.sum1 &lt;-<span class="st"> </span><span class="kw">gsummary</span>( Quinidine, <span class="dt">omit =</span> <span class="ot">TRUE</span> )</a>
+<a class="sourceLine" id="cb251-2" data-line-number="2">Quin.sum1[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">7</span>]</a></code></pre></div>
+<pre><code>##         time    conc   dose interval Age Height  Weight
+## 109  30.2633 0.50000 100.00      NaN  70     67  58.000
+## 70    0.7500 0.60000 201.00        8  68     69  75.000
+## 23   52.0262 0.56667 166.00        6  75     72 108.000
+## 92    8.8571 0.70000  83.00      NaN  68     72  65.000
+## 111  18.1638 0.90000 249.00      NaN  68     66  56.000
+## 5    24.3750 0.70000 301.00      NaN  62     71  66.000
+## 18  196.8438 0.93333 201.00        6  87     69  85.375
+## 24   31.2500 1.10000 187.88      NaN  55     69  89.000
+## 2    12.2000 1.20000 166.00      NaN  58     69  85.000
+## 88    4.7900 1.20000 201.00        8  85     72  77.000</code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1"><span class="kw">summary</span>( Quin.sum1 )</a></code></pre></div>
+<pre><code>##       time             conc           dose        interval    
+##  Min.   :   0.1   Min.   :0.50   Min.   : 83   Min.   : 5.00  
+##  1st Qu.:  19.3   1st Qu.:1.70   1st Qu.:198   1st Qu.: 6.00  
+##  Median :  47.2   Median :2.24   Median :201   Median : 6.00  
+##  Mean   : 251.5   Mean   :2.36   Mean   :224   Mean   : 6.99  
+##  3rd Qu.: 171.1   3rd Qu.:2.92   3rd Qu.:249   3rd Qu.: 8.00  
+##  Max.   :5364.9   Max.   :5.77   Max.   :498   Max.   :12.00  
+##                                                NA&#39;s   :29     
+##       Age           Height         Weight             Race   
+##  Min.   :42.0   Min.   :60.0   Min.   : 41.0   Caucasian:91  
+##  1st Qu.:61.0   1st Qu.:67.0   1st Qu.: 67.8   Latin    :35  
+##  Median :66.0   Median :70.0   Median : 79.2   Black    :10  
+##  Mean   :66.9   Mean   :69.6   Mean   : 79.2                 
+##  3rd Qu.:73.0   3rd Qu.:72.0   3rd Qu.: 88.2                 
+##  Max.   :92.0   Max.   :79.0   Max.   :119.0                 
+##                                                              
+##  Smoke       Ethanol        Heart    Creatinine      glyco      
+##  no :94   none   :90   No/Mild :55   &lt; 50 : 36   Min.   :0.390  
+##  yes:42   current:16   Moderate:40   &gt;= 50:100   1st Qu.:0.885  
+##           former :30   Severe  :41               Median :1.174  
+##                                                  Mean   :1.212  
+##                                                  3rd Qu.:1.453  
+##                                                  Max.   :2.995  
+## </code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="kw">summary</span>( Quinidine )</a></code></pre></div>
+<pre><code>##     Subject          time           conc           dose    
+##  223    :  47   Min.   :   0   Min.   :0.40   Min.   : 83  
+##  110    :  41   1st Qu.:  16   1st Qu.:1.60   1st Qu.:166  
+##  81     :  40   Median :  60   Median :2.30   Median :201  
+##  136    :  32   Mean   : 373   Mean   :2.45   Mean   :225  
+##  7      :  31   3rd Qu.: 241   3rd Qu.:3.00   3rd Qu.:249  
+##  76     :  28   Max.   :8096   Max.   :9.40   Max.   :603  
+##  (Other):1252                  NA&#39;s   :1110   NA&#39;s   :443  
+##     interval          Age           Height         Weight     
+##  Min.   : 4.00   Min.   :42.0   Min.   :60.0   Min.   : 41.0  
+##  1st Qu.: 6.00   1st Qu.:60.0   1st Qu.:67.0   1st Qu.: 69.5  
+##  Median : 6.00   Median :66.0   Median :69.0   Median : 78.0  
+##  Mean   : 7.11   Mean   :66.7   Mean   :69.2   Mean   : 79.7  
+##  3rd Qu.: 8.00   3rd Qu.:74.0   3rd Qu.:72.0   3rd Qu.: 89.0  
+##  Max.   :12.00   Max.   :92.0   Max.   :79.0   Max.   :119.0  
+##  NA&#39;s   :1222                                                 
+##         Race     Smoke         Ethanol         Heart    
+##  Caucasian:968   no :1024   none   :991   No/Mild :598  
+##  Latin    :384   yes: 447   current:191   Moderate:375  
+##  Black    :119              former :289   Severe  :498  
+##                                                         
+##                                                         
+##                                                         
+##                                                         
+##  Creatinine       glyco     
+##  &lt; 50 : 418   Min.   :0.39  
+##  &gt;= 50:1053   1st Qu.:0.93  
+##               Median :1.23  
+##               Mean   :1.28  
+##               3rd Qu.:1.54  
+##               Max.   :3.16  
+## </code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1"><span class="kw">sum</span>( <span class="kw">ifelse</span>(<span class="kw">is.na</span>(Quinidine[[<span class="st">&quot;conc&quot;</span>]]), <span class="dv">0</span>, <span class="dv">1</span>) )</a></code></pre></div>
+<pre><code>## [1] 361</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="kw">sum</span>( <span class="op">!</span><span class="kw">is.na</span>(Quinidine[[<span class="st">&quot;conc&quot;</span>]]) )</a></code></pre></div>
+<pre><code>## [1] 361</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="kw">sum</span>( <span class="op">!</span><span class="kw">is.na</span>(Quinidine[[<span class="st">&quot;dose&quot;</span>]]) )</a></code></pre></div>
+<pre><code>## [1] 1028</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1"><span class="kw">gapply</span>( Quinidine, <span class="st">&quot;conc&quot;</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(x)) )</a></code></pre></div>
+<pre><code>## 109  70  23  92 111   5  18  24   2  88  91 117 120  13  89  27 
+##   1   1   3   1   1   2   3   1   1   1   1   3   2   1   3   1 
+##  53 122 129 132  16 106  15  22  57  77 115 121 123  11  48 126 
+##   1   1   2   3   1   1   1   1   3   1   4   1   1   2   2   2 
+## 223  19  38  42  52  56  63  83 104 118 137  17  29  34  46  73 
+##   6   1   1   2   1   1   4   1   2   2   1   1   1   1   3   2 
+##  87 103 138  45  44  97  36  37  72 100   8  71   6  14  26  75 
+##   2   1   2   3   7   2   2   3   1   3   1   5   1   3   1   3 
+##  20  96  99 134  12  49  67  85 112 127  55  68 124   1  35  47 
+##   2   3   2   1   1   3   3   1   3   3   6   3   1   2   2   5 
+##  79  95 114 135 105 116  62  65 107 130  66 139  33  80 125 110 
+##   3   3   2   2   1   3   4   7   4   3   1   3   3   2   1  11 
+## 128 136  21  43  90 102  40  84  98  30  82  93 108 119  32 133 
+##   2  11   2   1   1   2   2   6   2   1   3   4   1   3   1   2 
+##   7   9  76  94  58 113  50  39  78  25  61   3  64  60  59  10 
+##   6   2   6   5   1   2   3   2  10   2   2   3   4   4   3   6 
+##  69   4  81  54  41  74  28  51 
+##   2   6  11   4   3   3   4   6</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1"><span class="kw">table</span>( <span class="kw">gapply</span>(Quinidine, <span class="st">&quot;conc&quot;</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(x))) )</a></code></pre></div>
+<pre><code>## 
+##  1  2  3  4  5  6  7 10 11 
+## 46 33 31  9  3  8  2  1  3</code></pre>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1">changeRecords &lt;-<span class="st"> </span><span class="kw">gapply</span>( Quinidine, <span class="dt">FUN =</span> <span class="cf">function</span>(frm)</a>
+<a class="sourceLine" id="cb267-2" data-line-number="2">    <span class="kw">any</span>(<span class="kw">is.na</span>(frm[[<span class="st">&quot;conc&quot;</span>]]) <span class="op">&amp;</span><span class="st"> </span><span class="kw">is.na</span>(frm[[<span class="st">&quot;dose&quot;</span>]])) )</a>
+<a class="sourceLine" id="cb267-3" data-line-number="3">changeRecords</a></code></pre></div>
+<pre><code>##   109    70    23    92   111     5    18    24     2    88 
+## FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE 
+##    91   117   120    13    89    27    53   122   129   132 
+## FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE 
+##    16   106    15    22    57    77   115   121   123    11 
+## FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE 
+##    48   126   223    19    38    42    52    56    63    83 
+##  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE 
+##   104   118   137    17    29    34    46    73    87   103 
+## FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE 
+##   138    45    44    97    36    37    72   100     8    71 
+## FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE 
+##     6    14    26    75    20    96    99   134    12    49 
+## FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE 
+##    67    85   112   127    55    68   124     1    35    47 
+## FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE 
+##    79    95   114   135   105   116    62    65   107   130 
+##  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE 
+##    66   139    33    80   125   110   128   136    21    43 
+## FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE 
+##    90   102    40    84    98    30    82    93   108   119 
+## FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE 
+##    32   133     7     9    76    94    58   113    50    39 
+## FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE 
+##    78    25    61     3    64    60    59    10    69     4 
+## FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE 
+##    81    54    41    74    28    51 
+##  TRUE  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1"><span class="kw">sort</span>( <span class="kw">as.numeric</span>( <span class="kw">names</span>(changeRecords)[changeRecords] ) )</a></code></pre></div>
+<pre><code>##  [1]   3   4   7  10  14  18  28  33  37  40  41  44  45  46  47
+## [16]  48  50  54  55  61  62  63  64  65  71  75  76  77  79  80
+## [31]  81  82  84  94  95  96  97  98 110 112 114 118 119 127 132
+## [46] 133 135 136 139 223</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1">Quinidine[<span class="dv">29</span><span class="op">:</span><span class="dv">31</span>,]</a></code></pre></div>
+<pre><code>## Grouped Data: conc ~ time | Subject
+##    Subject time conc dose interval Age Height Weight      Race
+## 29       3 3897   NA  201       NA  67     69     62 Caucasian
+## 30       3 3900   NA   NA       NA  67     69     62 Caucasian
+## 31       3 3905   NA  201       NA  67     69     62 Caucasian
+##    Smoke Ethanol    Heart Creatinine glyco
+## 29   yes  former Moderate       &lt; 50  1.71
+## 30   yes  former Moderate       &lt; 50  1.71
+## 31   yes  former Moderate       &lt; 50  1.71</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1">Quinidine[Quinidine[[<span class="st">&quot;Subject&quot;</span>]] <span class="op">==</span><span class="st"> </span><span class="dv">4</span>, ]</a></code></pre></div>
+<pre><code>## Grouped Data: conc ~ time | Subject
+##    Subject   time conc dose interval Age Height Weight  Race
+## 45       4   0.00   NA  332       NA  88     66    103 Black
+## 46       4   7.00   NA  332       NA  88     66    103 Black
+## 47       4  13.00   NA  332       NA  88     66    103 Black
+## 48       4  19.00   NA  332       NA  88     66    103 Black
+## 49       4  21.50  3.1   NA       NA  88     66    103 Black
+## 50       4  85.00   NA  249        6  88     66    103 Black
+## 51       4  91.00  5.8   NA       NA  88     66    103 Black
+## 52       4  91.08   NA  249       NA  88     66    103 Black
+## 53       4  97.00   NA  249       NA  88     66    103 Black
+## 54       4 103.00   NA  249       NA  88     66    103 Black
+## 55       4 105.00   NA   NA       NA  88     66     92 Black
+## 56       4 109.00   NA  249       NA  88     66     92 Black
+## 57       4 115.00   NA  249       NA  88     66     92 Black
+## 58       4 145.00   NA  166       NA  88     66     92 Black
+## 59       4 151.00   NA  166       NA  88     66     92 Black
+## 60       4 156.00  3.1   NA       NA  88     66     92 Black
+## 61       4 157.00   NA  166       NA  88     66     92 Black
+## 62       4 163.00   NA  166       NA  88     66     92 Black
+## 63       4 169.00   NA  166       NA  88     66     92 Black
+## 64       4 174.75   NA  201       NA  88     66     92 Black
+## 65       4 177.00   NA   NA       NA  88     66     92 Black
+## 66       4 181.50  3.1   NA       NA  88     66     92 Black
+## 67       4 245.00   NA  201        8  88     66     92 Black
+## 68       4 249.00   NA   NA       NA  88     66     86 Black
+## 69       4 252.50  3.2   NA       NA  88     66     86 Black
+## 70       4 317.00   NA  201        8  88     66     86 Black
+## 71       4 326.00  1.9   NA       NA  88     66     86 Black
+##    Smoke Ethanol  Heart Creatinine glyco
+## 45   yes    none Severe      &gt;= 50  1.48
+## 46   yes    none Severe      &gt;= 50  1.48
+## 47   yes    none Severe      &gt;= 50  1.48
+## 48   yes    none Severe      &gt;= 50  1.48
+## 49   yes    none Severe      &gt;= 50  1.48
+## 50   yes    none Severe      &gt;= 50  1.61
+## 51   yes    none Severe      &gt;= 50  1.61
+## 52   yes    none Severe      &gt;= 50  1.61
+## 53   yes    none Severe      &gt;= 50  1.61
+## 54   yes    none Severe      &gt;= 50  1.61
+## 55   yes    none Severe      &gt;= 50  1.61
+## 56   yes    none Severe      &gt;= 50  1.61
+## 57   yes    none Severe      &gt;= 50  1.61
+## 58   yes    none Severe      &gt;= 50  1.88
+## 59   yes    none Severe      &gt;= 50  1.88
+## 60   yes    none Severe      &gt;= 50  1.88
+## 61   yes    none Severe      &gt;= 50  1.88
+## 62   yes    none Severe      &gt;= 50  1.88
+## 63   yes    none Severe      &gt;= 50  1.88
+## 64   yes    none Severe      &gt;= 50  1.88
+## 65   yes    none Severe      &gt;= 50  1.68
+## 66   yes    none Severe      &gt;= 50  1.68
+## 67   yes    none Severe      &gt;= 50  1.87
+## 68   yes    none Severe      &gt;= 50  1.87
+## 69   yes    none Severe      &gt;= 50  1.87
+## 70   yes    none Severe      &gt;= 50  1.83
+## 71   yes    none Severe      &gt;= 50  1.83</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1"><span class="co"># cleanup</span></a>
+<a class="sourceLine" id="cb275-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb275-3" data-line-number="3"><span class="kw">proc.time</span>()</a></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   32.26    1.23   35.81</code></pre>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chapter-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

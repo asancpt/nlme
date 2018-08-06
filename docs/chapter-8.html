@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>nlme.utf8.md</title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="nlme.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="nlme.utf8.md" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chapter-6.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Chapter 1</a></li>
+<li class="chapter" data-level="2" data-path="chapter-2.html"><a href="chapter-2.html"><i class="fa fa-check"></i><b>2</b> Chapter 2</a></li>
+<li class="chapter" data-level="3" data-path="chapter-3.html"><a href="chapter-3.html"><i class="fa fa-check"></i><b>3</b> Chapter 3</a></li>
+<li class="chapter" data-level="4" data-path="chapter-4.html"><a href="chapter-4.html"><i class="fa fa-check"></i><b>4</b> Chapter 4</a></li>
+<li class="chapter" data-level="5" data-path="chapter-5.html"><a href="chapter-5.html"><i class="fa fa-check"></i><b>5</b> Chapter 5</a></li>
+<li class="chapter" data-level="6" data-path="chapter-6.html"><a href="chapter-6.html"><i class="fa fa-check"></i><b>6</b> Chapter 6</a></li>
+<li class="chapter" data-level="7" data-path="chapter-8.html"><a href="chapter-8.html"><i class="fa fa-check"></i><b>7</b> Chapter 8</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter-8" class="section level1">
+<h1><span class="header-section-number">7</span> Chapter 8</h1>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1"><span class="co">#-*- R -*-</span></a>
+<a class="sourceLine" id="cb608-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb608-3" data-line-number="3"><span class="co"># initialization</span></a>
+<a class="sourceLine" id="cb608-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb608-5" data-line-number="5"><span class="kw">library</span>(nlme)</a>
+<a class="sourceLine" id="cb608-6" data-line-number="6"><span class="kw">library</span>(lattice)</a>
+<a class="sourceLine" id="cb608-7" data-line-number="7"><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">65</span>, <span class="dt">digits =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb608-8" data-line-number="8"><span class="kw">options</span>(<span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="dt">unordered =</span> <span class="st">&quot;contr.helmert&quot;</span>, <span class="dt">ordered =</span> <span class="st">&quot;contr.poly&quot;</span>))</a>
+<a class="sourceLine" id="cb608-9" data-line-number="9"><span class="co">#pdf(file = &quot;ch08.pdf&quot;)</span></a>
+<a class="sourceLine" id="cb608-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb608-11" data-line-number="11"><span class="co"># Chapter 8    Fitting Nonlinear Mixed-Effects Models</span></a>
+<a class="sourceLine" id="cb608-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb608-13" data-line-number="13"><span class="co"># 8.1 Fitting Nonlinear Models in S with nls and nlsList</span></a>
+<a class="sourceLine" id="cb608-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb608-15" data-line-number="15">## outer = ~1 is used to display all five curves in one panel</a>
+<a class="sourceLine" id="cb608-16" data-line-number="16"><span class="kw">plot</span>(Orange, <span class="dt">outer =</span> <span class="op">~</span><span class="dv">1</span>)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1">logist &lt;-</a>
+<a class="sourceLine" id="cb609-2" data-line-number="2"><span class="st">   </span><span class="cf">function</span>(x, Asym, xmid, scal) Asym<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(x <span class="op">-</span><span class="st"> </span>xmid)<span class="op">/</span>scal))</a>
+<a class="sourceLine" id="cb609-3" data-line-number="3">logist &lt;-<span class="st"> </span><span class="kw">deriv</span>(<span class="op">~</span>Asym<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span>(x<span class="op">-</span>xmid)<span class="op">/</span>scal)),</a>
+<a class="sourceLine" id="cb609-4" data-line-number="4">    <span class="kw">c</span>(<span class="st">&quot;Asym&quot;</span>, <span class="st">&quot;xmid&quot;</span>, <span class="st">&quot;scal&quot;</span>), <span class="cf">function</span>(x, Asym, xmid, scal){})</a>
+<a class="sourceLine" id="cb609-5" data-line-number="5">Asym &lt;-<span class="st"> </span><span class="dv">180</span>; xmid &lt;-<span class="st"> </span><span class="dv">700</span>; scal &lt;-<span class="st"> </span><span class="dv">300</span></a>
+<a class="sourceLine" id="cb609-6" data-line-number="6"><span class="kw">logist</span>(Orange<span class="op">$</span>age[<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>], Asym, xmid, scal)</a></code></pre></div>
+<pre><code>## [1]  22.617  58.931  84.606 132.061 153.802 162.681 170.962
+## attr(,&quot;gradient&quot;)
+##         Asym      xmid      scal
+## [1,] 0.12565 -0.065916  0.127878
+## [2,] 0.32739 -0.132124  0.095129
+## [3,] 0.47004 -0.149461  0.017935
+## [4,] 0.73367 -0.117238 -0.118802
+## [5,] 0.85446 -0.074616 -0.132070
+## [6,] 0.90378 -0.052175 -0.116872
+## [7,] 0.94979 -0.028614 -0.084125</code></pre>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1">fm1Oran.nls &lt;-<span class="st"> </span><span class="kw">nls</span>(circumference <span class="op">~</span><span class="st"> </span><span class="kw">logist</span>(age, Asym, xmid, scal),</a>
+<a class="sourceLine" id="cb611-2" data-line-number="2">   <span class="dt">data =</span> Orange, <span class="dt">start =</span> <span class="kw">c</span>(<span class="dt">Asym =</span> <span class="dv">170</span>, <span class="dt">xmid =</span> <span class="dv">700</span>, <span class="dt">scal =</span> <span class="dv">500</span>))</a>
+<a class="sourceLine" id="cb611-3" data-line-number="3"><span class="kw">summary</span>(fm1Oran.nls)</a></code></pre></div>
+<pre><code>## 
+## Formula: circumference ~ logist(age, Asym, xmid, scal)
+## 
+## Parameters:
+##      Estimate Std. Error t value Pr(&gt;|t|)    
+## Asym    192.7       20.2    9.52  7.5e-11 ***
+## xmid    728.8      107.3    6.79  1.1e-07 ***
+## scal    353.5       81.5    4.34  0.00013 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 23.4 on 32 degrees of freedom
+## 
+## Number of iterations to convergence: 5 
+## Achieved convergence tolerance: 4.39e-06</code></pre>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" data-line-number="1"><span class="kw">plot</span>(fm1Oran.nls)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-2.png" width="672" /></p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb614-1" data-line-number="1"><span class="kw">plot</span>(fm1Oran.nls, Tree <span class="op">~</span><span class="st"> </span><span class="kw">resid</span>(.), <span class="dt">abline =</span> <span class="dv">0</span>)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-3.png" width="672" /></p>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" data-line-number="1">Orange.sortAvg &lt;-<span class="st"> </span><span class="kw">sortedXyData</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;circumference&quot;</span>, Orange)</a>
+<a class="sourceLine" id="cb615-2" data-line-number="2">Orange.sortAvg</a></code></pre></div>
+<pre><code>##      x     y
+## 1  118  31.0
+## 2  484  57.8
+## 3  664  93.2
+## 4 1004 134.2
+## 5 1231 145.6
+## 6 1372 173.4
+## 7 1582 175.8</code></pre>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" data-line-number="1"><span class="kw">NLSstClosestX</span>(Orange.sortAvg, <span class="dv">130</span>)</a></code></pre></div>
+<pre><code>## [1] 969.17</code></pre>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" data-line-number="1">logistInit &lt;-<span class="st"> </span><span class="cf">function</span>(mCall, LHS, data) {</a>
+<a class="sourceLine" id="cb619-2" data-line-number="2">    xy &lt;-<span class="st"> </span><span class="kw">sortedXyData</span>(mCall[[<span class="st">&quot;x&quot;</span>]], LHS, data)</a>
+<a class="sourceLine" id="cb619-3" data-line-number="3">    <span class="cf">if</span>(<span class="kw">nrow</span>(xy) <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) {</a>
+<a class="sourceLine" id="cb619-4" data-line-number="4">        <span class="kw">stop</span>(<span class="st">&quot;Too few distinct input values to fit a logistic&quot;</span>)</a>
+<a class="sourceLine" id="cb619-5" data-line-number="5">    }</a>
+<a class="sourceLine" id="cb619-6" data-line-number="6">    Asym &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">abs</span>(xy[,<span class="st">&quot;y&quot;</span>]))</a>
+<a class="sourceLine" id="cb619-7" data-line-number="7">    <span class="cf">if</span> (Asym <span class="op">!=</span><span class="st"> </span><span class="kw">max</span>(xy[,<span class="st">&quot;y&quot;</span>])) Asym &lt;-<span class="st"> </span><span class="op">-</span>Asym  <span class="co"># negative asymptote</span></a>
+<a class="sourceLine" id="cb619-8" data-line-number="8">    xmid &lt;-<span class="st"> </span><span class="kw">NLSstClosestX</span>(xy, <span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span>Asym)</a>
+<a class="sourceLine" id="cb619-9" data-line-number="9">    scal &lt;-<span class="st"> </span><span class="kw">NLSstClosestX</span>(xy, <span class="fl">0.75</span> <span class="op">*</span><span class="st"> </span>Asym) <span class="op">-</span><span class="st"> </span>xmid</a>
+<a class="sourceLine" id="cb619-10" data-line-number="10">    value &lt;-<span class="st"> </span><span class="kw">c</span>(Asym, xmid, scal)</a>
+<a class="sourceLine" id="cb619-11" data-line-number="11">    <span class="kw">names</span>(value) &lt;-<span class="st"> </span>mCall[<span class="kw">c</span>(<span class="st">&quot;Asym&quot;</span>, <span class="st">&quot;xmid&quot;</span>, <span class="st">&quot;scal&quot;</span>)]</a>
+<a class="sourceLine" id="cb619-12" data-line-number="12">    value</a>
+<a class="sourceLine" id="cb619-13" data-line-number="13">}</a>
+<a class="sourceLine" id="cb619-14" data-line-number="14">logist &lt;-<span class="st"> </span><span class="kw">selfStart</span>(logist, <span class="dt">initial =</span> logistInit)</a>
+<a class="sourceLine" id="cb619-15" data-line-number="15"><span class="kw">class</span>(logist)</a></code></pre></div>
+<pre><code>## [1] &quot;selfStart&quot;</code></pre>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" data-line-number="1">logist &lt;-<span class="st"> </span><span class="kw">selfStart</span>(<span class="op">~</span><span class="st"> </span>Asym<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(x <span class="op">-</span><span class="st"> </span>xmid)<span class="op">/</span>scal)),</a>
+<a class="sourceLine" id="cb621-2" data-line-number="2">   <span class="dt">initial =</span> logistInit, <span class="dt">parameters =</span> <span class="kw">c</span>(<span class="st">&quot;Asym&quot;</span>, <span class="st">&quot;xmid&quot;</span>, <span class="st">&quot;scal&quot;</span>))</a>
+<a class="sourceLine" id="cb621-3" data-line-number="3"><span class="kw">getInitial</span>(circumference <span class="op">~</span><span class="st"> </span><span class="kw">logist</span>(age, Asym, xmid, scal), Orange)</a></code></pre></div>
+<pre><code>##   Asym   xmid   scal 
+## 175.80 637.05 347.46</code></pre>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb623-1" data-line-number="1"><span class="kw">nls</span>(circumference <span class="op">~</span><span class="st"> </span><span class="kw">logist</span>(age, Asym, xmid, scal), Orange)</a></code></pre></div>
+<pre><code>## Nonlinear regression model
+##   model: circumference ~ logist(age, Asym, xmid, scal)
+##    data: Orange
+## Asym xmid scal 
+##  193  729  354 
+##  residual sum-of-squares: 17480
+## 
+## Number of iterations to convergence: 4 
+## Achieved convergence tolerance: 8.63e-07</code></pre>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb625-1" data-line-number="1"><span class="kw">getInitial</span>(circumference <span class="op">~</span><span class="st"> </span><span class="kw">SSlogis</span>(age,Asym,xmid,scal), Orange)</a></code></pre></div>
+<pre><code>##   Asym   xmid   scal 
+## 192.69 728.76 353.53</code></pre>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb627-1" data-line-number="1"><span class="kw">nls</span>(circumference <span class="op">~</span><span class="st"> </span><span class="kw">SSlogis</span>(age, Asym, xmid, scal), Orange)</a></code></pre></div>
+<pre><code>## Nonlinear regression model
+##   model: circumference ~ SSlogis(age, Asym, xmid, scal)
+##    data: Orange
+## Asym xmid scal 
+##  193  729  354 
+##  residual sum-of-squares: 17480
+## 
+## Number of iterations to convergence: 0 
+## Achieved convergence tolerance: 2.21e-06</code></pre>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb629-1" data-line-number="1">fm1Oran.lis &lt;-</a>
+<a class="sourceLine" id="cb629-2" data-line-number="2"><span class="st">   </span><span class="kw">nlsList</span>(circumference <span class="op">~</span><span class="st"> </span><span class="kw">SSlogis</span>(age, Asym, xmid, scal) <span class="op">|</span><span class="st"> </span>Tree,</a>
+<a class="sourceLine" id="cb629-3" data-line-number="3">           <span class="dt">data =</span> Orange)</a>
+<a class="sourceLine" id="cb629-4" data-line-number="4">fm1Oran.lis &lt;-<span class="st"> </span><span class="kw">nlsList</span>(SSlogis, Orange)</a>
+<a class="sourceLine" id="cb629-5" data-line-number="5">fm1Oran.lis.noSS &lt;-</a>
+<a class="sourceLine" id="cb629-6" data-line-number="6"><span class="st">    </span><span class="kw">nlsList</span>(circumference <span class="op">~</span><span class="st"> </span>Asym<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span>(age<span class="op">-</span>xmid)<span class="op">/</span>scal)),</a>
+<a class="sourceLine" id="cb629-7" data-line-number="7">             <span class="dt">data =</span> Orange,</a>
+<a class="sourceLine" id="cb629-8" data-line-number="8">             <span class="dt">start =</span> <span class="kw">c</span>(<span class="dt">Asym =</span> <span class="dv">170</span>, <span class="dt">xmid =</span> <span class="dv">700</span>, <span class="dt">scal =</span> <span class="dv">500</span>))</a>
+<a class="sourceLine" id="cb629-9" data-line-number="9">fm1Oran.lis</a></code></pre></div>
+<pre><code>## Call:
+##   Model: circumference ~ SSlogis(age, Asym, xmid, scal) | Tree 
+##    Data: Orange 
+## 
+## Coefficients:
+##     Asym   xmid   scal
+## 3 158.83 734.84 400.95
+## 1 154.16 627.19 362.57
+## 5 207.26 861.30 379.95
+## 2 219.00 700.35 332.49
+## 4 225.30 710.71 303.14
+## 
+## Degrees of freedom: 35 total; 20 residual
+## Residual standard error: 7.98</code></pre>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb631-1" data-line-number="1"><span class="kw">summary</span>(fm1Oran.lis)</a></code></pre></div>
+<pre><code>## Call:
+##   Model: circumference ~ SSlogis(age, Asym, xmid, scal) | Tree 
+##    Data: Orange 
+## 
+## Coefficients:
+##    Asym 
+##   Estimate Std. Error t value   Pr(&gt;|t|)
+## 3   158.83     19.235  8.2574 0.00046020
+## 1   154.16     13.594 11.3404 0.00016902
+## 5   207.26     22.023  9.4111 0.00073756
+## 2   219.00     13.359 16.3938 0.00010521
+## 4   225.30     11.839 19.0299 0.00010404
+##    xmid 
+##   Estimate Std. Error t value   Pr(&gt;|t|)
+## 3   734.84    130.807  5.6178 0.00201061
+## 1   627.19     92.893  6.7518 0.00126293
+## 5   861.30    107.991  7.9757 0.00138949
+## 2   700.35     61.350 11.4155 0.00043456
+## 4   710.71     51.172 13.8887 0.00035794
+##    scal 
+##   Estimate Std. Error t value  Pr(&gt;|t|)
+## 3   400.95     94.776  4.2306 0.0057139
+## 1   362.57     81.205  4.4649 0.0058611
+## 5   379.95     66.751  5.6920 0.0048740
+## 2   332.49     49.385  6.7326 0.0032407
+## 4   303.14     41.611  7.2852 0.0041511
+## 
+## Residual standard error: 7.98 on 20 degrees of freedom</code></pre>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb633-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">intervals</span>(fm1Oran.lis), <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-4.png" width="672" /></p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb634-1" data-line-number="1"><span class="kw">plot</span>(fm1Oran.lis, Tree <span class="op">~</span><span class="st"> </span><span class="kw">resid</span>(.), <span class="dt">abline =</span> <span class="dv">0</span>)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-5.png" width="672" /></p>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" data-line-number="1">Theoph[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,]</a></code></pre></div>
+<pre><code>## Grouped Data: conc ~ Time | Subject
+##   Subject   Wt Dose Time  conc
+## 1       1 79.6 4.02 0.00  0.74
+## 2       1 79.6 4.02 0.25  2.84
+## 3       1 79.6 4.02 0.57  6.57
+## 4       1 79.6 4.02 1.12 10.50</code></pre>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" data-line-number="1">fm1Theo.lis &lt;-<span class="st"> </span><span class="kw">nlsList</span>(conc <span class="op">~</span><span class="st"> </span><span class="kw">SSfol</span>(Dose, Time, lKe, lKa, lCl),</a>
+<a class="sourceLine" id="cb637-2" data-line-number="2">   <span class="dt">data =</span> Theoph)</a>
+<a class="sourceLine" id="cb637-3" data-line-number="3">fm1Theo.lis</a></code></pre></div>
+<pre><code>## Call:
+##   Model: conc ~ SSfol(Dose, Time, lKe, lKa, lCl) | Subject 
+##    Data: Theoph 
+## 
+## Coefficients:
+##        lKe      lKa     lCl
+## 6  -2.3073  0.15162 -2.9732
+## 7  -2.2804 -0.38605 -2.9643
+## 8  -2.3864  0.31883 -3.0691
+## 11 -2.3215  1.34782 -2.8604
+## 3  -2.5081  0.89754 -3.2300
+## 2  -2.2861  0.66406 -3.1063
+## 4  -2.4365  0.15826 -3.2861
+## 9  -2.4461  2.18219 -3.4208
+## 12 -2.2483 -0.18284 -3.1702
+## 10 -2.6041 -0.36312 -3.4283
+## 1  -2.9196  0.57516 -3.9159
+## 5  -2.4255  0.38629 -3.1326
+## 
+## Degrees of freedom: 132 total; 96 residual
+## Residual standard error: 0.70019</code></pre>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb639-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">intervals</span>(fm1Theo.lis), <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-6.png" width="672" /></p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb640-1" data-line-number="1"><span class="kw">pairs</span>(fm1Theo.lis, <span class="dt">id =</span> <span class="fl">0.1</span>)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-7.png" width="672" /></p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb641-1" data-line-number="1"><span class="co"># 8.2 Fitting Nonlinear Mixed-Effects Models with nlme</span></a>
+<a class="sourceLine" id="cb641-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb641-3" data-line-number="3">## no need to specify groups, as Orange is a groupedData object</a>
+<a class="sourceLine" id="cb641-4" data-line-number="4">## random is omitted - by default it is equal to fixed</a>
+<a class="sourceLine" id="cb641-5" data-line-number="5">(fm1Oran.nlme &lt;-</a>
+<a class="sourceLine" id="cb641-6" data-line-number="6"><span class="st">   </span><span class="kw">nlme</span>(circumference <span class="op">~</span><span class="st"> </span><span class="kw">SSlogis</span>(age, Asym, xmid, scal),</a>
+<a class="sourceLine" id="cb641-7" data-line-number="7">       <span class="dt">data =</span> Orange,</a>
+<a class="sourceLine" id="cb641-8" data-line-number="8">       <span class="dt">fixed =</span> Asym <span class="op">+</span><span class="st"> </span>xmid <span class="op">+</span><span class="st"> </span>scal <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb641-9" data-line-number="9">       <span class="dt">start =</span> <span class="kw">fixef</span>(fm1Oran.lis)))</a></code></pre></div>
+<pre><code>## Warning in nlme.formula(circumference ~ SSlogis(age, Asym, xmid,
+## scal), : Iteration 1, LME step: nlminb() did not converge (code =
+## 1). Do increase &#39;msMaxIter&#39;!</code></pre>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: circumference ~ SSlogis(age, Asym, xmid, scal) 
+##   Data: Orange 
+##   Log-likelihood: -129.99
+##   Fixed: Asym + xmid + scal ~ 1 
+##   Asym   xmid   scal 
+## 192.10 727.60 356.61 
+## 
+## Random effects:
+##  Formula: list(Asym ~ 1, xmid ~ 1, scal ~ 1)
+##  Level: Tree
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##          StdDev  Corr         
+## Asym     27.0508 Asym   xmid  
+## xmid     24.2521 -0.328       
+## scal     36.6009 -0.992  0.443
+## Residual  7.3216              
+## 
+## Number of Observations: 35
+## Number of Groups: 5</code></pre>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb644-1" data-line-number="1"><span class="kw">summary</span>(fm1Oran.nlme)</a></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: circumference ~ SSlogis(age, Asym, xmid, scal) 
+##  Data: Orange 
+##      AIC    BIC  logLik
+##   279.98 295.53 -129.99
+## 
+## Random effects:
+##  Formula: list(Asym ~ 1, xmid ~ 1, scal ~ 1)
+##  Level: Tree
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##          StdDev  Corr         
+## Asym     27.0508 Asym   xmid  
+## xmid     24.2521 -0.328       
+## scal     36.6009 -0.992  0.443
+## Residual  7.3216              
+## 
+## Fixed effects: Asym + xmid + scal ~ 1 
+##       Value Std.Error DF t-value p-value
+## Asym 192.10    14.052 28  13.670       0
+## xmid 727.60    34.587 28  21.037       0
+## scal 356.61    30.499 28  11.693       0
+##  Correlation: 
+##      Asym   xmid  
+## xmid  0.277       
+## scal -0.193  0.665
+## 
+## Standardized Within-Group Residuals:
+##      Min       Q1      Med       Q3      Max 
+## -1.81870 -0.52152  0.17421  0.51768  1.64528 
+## 
+## Number of Observations: 35
+## Number of Groups: 5</code></pre>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb646-1" data-line-number="1"><span class="kw">summary</span>(fm1Oran.nls)</a></code></pre></div>
+<pre><code>## 
+## Formula: circumference ~ logist(age, Asym, xmid, scal)
+## 
+## Parameters:
+##      Estimate Std. Error t value Pr(&gt;|t|)    
+## Asym    192.7       20.2    9.52  7.5e-11 ***
+## xmid    728.8      107.3    6.79  1.1e-07 ***
+## scal    353.5       81.5    4.34  0.00013 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 23.4 on 32 degrees of freedom
+## 
+## Number of iterations to convergence: 5 
+## Achieved convergence tolerance: 4.39e-06</code></pre>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb648-1" data-line-number="1"><span class="kw">pairs</span>(fm1Oran.nlme)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-8.png" width="672" /></p>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb649-1" data-line-number="1">fm2Oran.nlme &lt;-<span class="st"> </span><span class="kw">update</span>(fm1Oran.nlme, <span class="dt">random =</span> Asym <span class="op">~</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb649-2" data-line-number="2"><span class="kw">anova</span>(fm1Oran.nlme, fm2Oran.nlme)</a></code></pre></div>
+<pre><code>##              Model df    AIC    BIC  logLik   Test L.Ratio
+## fm1Oran.nlme     1 10 279.98 295.54 -129.99               
+## fm2Oran.nlme     2  5 273.17 280.95 -131.59 1 vs 2  3.1876
+##              p-value
+## fm1Oran.nlme        
+## fm2Oran.nlme  0.6711</code></pre>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb651-1" data-line-number="1"><span class="kw">plot</span>(fm1Oran.nlme)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-9.png" width="672" /></p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb652-1" data-line-number="1">## level = 0:1 requests fixed (0) and within-group (1) predictions</a>
+<a class="sourceLine" id="cb652-2" data-line-number="2"><span class="kw">plot</span>(<span class="kw">augPred</span>(fm2Oran.nlme, <span class="dt">level =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb652-3" data-line-number="3">     <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-10.png" width="672" /></p>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb653-1" data-line-number="1"><span class="kw">qqnorm</span>(fm2Oran.nlme, <span class="dt">abline =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-11.png" width="672" /></p>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb654-1" data-line-number="1">(fm1Theo.nlme &lt;-<span class="st"> </span><span class="kw">nlme</span>(fm1Theo.lis))</a></code></pre></div>
+<pre><code>## Warning in (function (model, data = sys.frame(sys.parent()),
+## fixed, random, : Iteration 2, LME step: nlminb() did not converge
+## (code = 1). Do increase &#39;msMaxIter&#39;!</code></pre>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: conc ~ SSfol(Dose, Time, lKe, lKa, lCl) 
+##   Data: Theoph 
+##   Log-likelihood: -173.32
+##   Fixed: list(lKe ~ 1, lKa ~ 1, lCl ~ 1) 
+##      lKe      lKa      lCl 
+## -2.43267  0.45141 -3.21445 
+## 
+## Random effects:
+##  Formula: list(lKe ~ 1, lKa ~ 1, lCl ~ 1)
+##  Level: Subject
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##          StdDev  Corr         
+## lKe      0.13104 lKe    lKa   
+## lKa      0.63778  0.012       
+## lCl      0.25118  0.995 -0.089
+## Residual 0.68183              
+## 
+## Number of Observations: 132
+## Number of Groups: 12</code></pre>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" data-line-number="1"><span class="cf">if</span> (<span class="kw">interactive</span>()) <span class="kw">intervals</span>(fm1Theo.nlme, <span class="dt">which =</span> <span class="st">&quot;var-cov&quot;</span>)</a>
+<a class="sourceLine" id="cb657-2" data-line-number="2">(fm2Theo.nlme &lt;-<span class="st"> </span><span class="kw">update</span>(fm1Theo.nlme,</a>
+<a class="sourceLine" id="cb657-3" data-line-number="3">  <span class="dt">random =</span> <span class="kw">pdDiag</span>(lKe <span class="op">+</span><span class="st"> </span>lKa <span class="op">+</span><span class="st"> </span>lCl <span class="op">~</span><span class="st"> </span><span class="dv">1</span>)))</a></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: conc ~ SSfol(Dose, Time, lKe, lKa, lCl) 
+##   Data: Theoph 
+##   Log-likelihood: -177.02
+##   Fixed: list(lKe ~ 1, lKa ~ 1, lCl ~ 1) 
+##     lKe     lKa     lCl 
+## -2.4546  0.4655 -3.2272 
+## 
+## Random effects:
+##  Formula: list(lKe ~ 1, lKa ~ 1, lCl ~ 1)
+##  Level: Subject
+##  Structure: Diagonal
+##                lKe     lKa     lCl Residual
+## StdDev: 1.9302e-05 0.64386 0.16692  0.70923
+## 
+## Number of Observations: 132
+## Number of Groups: 12</code></pre>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb659-1" data-line-number="1">fm3Theo.nlme &lt;-</a>
+<a class="sourceLine" id="cb659-2" data-line-number="2"><span class="st">  </span><span class="kw">update</span>(fm2Theo.nlme, <span class="dt">random =</span> <span class="kw">pdDiag</span>(lKa <span class="op">+</span><span class="st"> </span>lCl <span class="op">~</span><span class="st"> </span><span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb659-3" data-line-number="3"><span class="kw">anova</span>(fm1Theo.nlme, fm3Theo.nlme, fm2Theo.nlme)</a></code></pre></div>
+<pre><code>##              Model df    AIC    BIC  logLik   Test L.Ratio
+## fm1Theo.nlme     1 10 366.64 395.47 -173.32               
+## fm3Theo.nlme     2  6 366.04 383.34 -177.02 1 vs 2  7.4012
+## fm2Theo.nlme     3  7 368.05 388.23 -177.02 2 vs 3  0.0041
+##              p-value
+## fm1Theo.nlme        
+## fm3Theo.nlme  0.1161
+## fm2Theo.nlme  0.9488</code></pre>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb661-1" data-line-number="1"><span class="kw">plot</span>(fm3Theo.nlme)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-12.png" width="672" /></p>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb662-1" data-line-number="1"><span class="kw">qqnorm</span>(fm3Theo.nlme, <span class="op">~</span><span class="st"> </span><span class="kw">ranef</span>(.))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-13.png" width="672" /></p>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb663-1" data-line-number="1">CO2</a></code></pre></div>
+<pre><code>## Grouped Data: uptake ~ conc | Plant
+##    Plant        Type  Treatment conc uptake
+## 1    Qn1      Quebec nonchilled   95   16.0
+## 2    Qn1      Quebec nonchilled  175   30.4
+## 3    Qn1      Quebec nonchilled  250   34.8
+## 4    Qn1      Quebec nonchilled  350   37.2
+## 5    Qn1      Quebec nonchilled  500   35.3
+## 6    Qn1      Quebec nonchilled  675   39.2
+## 7    Qn1      Quebec nonchilled 1000   39.7
+## 8    Qn2      Quebec nonchilled   95   13.6
+## 9    Qn2      Quebec nonchilled  175   27.3
+## 10   Qn2      Quebec nonchilled  250   37.1
+## 11   Qn2      Quebec nonchilled  350   41.8
+## 12   Qn2      Quebec nonchilled  500   40.6
+## 13   Qn2      Quebec nonchilled  675   41.4
+## 14   Qn2      Quebec nonchilled 1000   44.3
+## 15   Qn3      Quebec nonchilled   95   16.2
+## 16   Qn3      Quebec nonchilled  175   32.4
+## 17   Qn3      Quebec nonchilled  250   40.3
+## 18   Qn3      Quebec nonchilled  350   42.1
+## 19   Qn3      Quebec nonchilled  500   42.9
+## 20   Qn3      Quebec nonchilled  675   43.9
+## 21   Qn3      Quebec nonchilled 1000   45.5
+## 22   Qc1      Quebec    chilled   95   14.2
+## 23   Qc1      Quebec    chilled  175   24.1
+## 24   Qc1      Quebec    chilled  250   30.3
+## 25   Qc1      Quebec    chilled  350   34.6
+## 26   Qc1      Quebec    chilled  500   32.5
+## 27   Qc1      Quebec    chilled  675   35.4
+## 28   Qc1      Quebec    chilled 1000   38.7
+## 29   Qc2      Quebec    chilled   95    9.3
+## 30   Qc2      Quebec    chilled  175   27.3
+## 31   Qc2      Quebec    chilled  250   35.0
+## 32   Qc2      Quebec    chilled  350   38.8
+## 33   Qc2      Quebec    chilled  500   38.6
+## 34   Qc2      Quebec    chilled  675   37.5
+## 35   Qc2      Quebec    chilled 1000   42.4
+## 36   Qc3      Quebec    chilled   95   15.1
+## 37   Qc3      Quebec    chilled  175   21.0
+## 38   Qc3      Quebec    chilled  250   38.1
+## 39   Qc3      Quebec    chilled  350   34.0
+## 40   Qc3      Quebec    chilled  500   38.9
+## 41   Qc3      Quebec    chilled  675   39.6
+## 42   Qc3      Quebec    chilled 1000   41.4
+## 43   Mn1 Mississippi nonchilled   95   10.6
+## 44   Mn1 Mississippi nonchilled  175   19.2
+## 45   Mn1 Mississippi nonchilled  250   26.2
+## 46   Mn1 Mississippi nonchilled  350   30.0
+## 47   Mn1 Mississippi nonchilled  500   30.9
+## 48   Mn1 Mississippi nonchilled  675   32.4
+## 49   Mn1 Mississippi nonchilled 1000   35.5
+## 50   Mn2 Mississippi nonchilled   95   12.0
+## 51   Mn2 Mississippi nonchilled  175   22.0
+## 52   Mn2 Mississippi nonchilled  250   30.6
+## 53   Mn2 Mississippi nonchilled  350   31.8
+## 54   Mn2 Mississippi nonchilled  500   32.4
+## 55   Mn2 Mississippi nonchilled  675   31.1
+## 56   Mn2 Mississippi nonchilled 1000   31.5
+## 57   Mn3 Mississippi nonchilled   95   11.3
+## 58   Mn3 Mississippi nonchilled  175   19.4
+## 59   Mn3 Mississippi nonchilled  250   25.8
+## 60   Mn3 Mississippi nonchilled  350   27.9
+## 61   Mn3 Mississippi nonchilled  500   28.5
+## 62   Mn3 Mississippi nonchilled  675   28.1
+## 63   Mn3 Mississippi nonchilled 1000   27.8
+## 64   Mc1 Mississippi    chilled   95   10.5
+## 65   Mc1 Mississippi    chilled  175   14.9
+## 66   Mc1 Mississippi    chilled  250   18.1
+## 67   Mc1 Mississippi    chilled  350   18.9
+## 68   Mc1 Mississippi    chilled  500   19.5
+## 69   Mc1 Mississippi    chilled  675   22.2
+## 70   Mc1 Mississippi    chilled 1000   21.9
+## 71   Mc2 Mississippi    chilled   95    7.7
+## 72   Mc2 Mississippi    chilled  175   11.4
+## 73   Mc2 Mississippi    chilled  250   12.3
+## 74   Mc2 Mississippi    chilled  350   13.0
+## 75   Mc2 Mississippi    chilled  500   12.5
+## 76   Mc2 Mississippi    chilled  675   13.7
+## 77   Mc2 Mississippi    chilled 1000   14.4
+## 78   Mc3 Mississippi    chilled   95   10.6
+## 79   Mc3 Mississippi    chilled  175   18.0
+## 80   Mc3 Mississippi    chilled  250   17.9
+## 81   Mc3 Mississippi    chilled  350   17.9
+## 82   Mc3 Mississippi    chilled  500   17.9
+## 83   Mc3 Mississippi    chilled  675   18.9
+## 84   Mc3 Mississippi    chilled 1000   19.9</code></pre>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb665-1" data-line-number="1"><span class="kw">plot</span>(CO2, <span class="dt">outer =</span> <span class="op">~</span>Treatment<span class="op">*</span>Type, <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-14.png" width="672" /></p>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb666-1" data-line-number="1">(fm1CO2.lis &lt;-<span class="st"> </span><span class="kw">nlsList</span>(SSasympOff, CO2))</a></code></pre></div>
+<pre><code>## Call:
+##   Model: uptake ~ SSasympOff(conc, Asym, lrc, c0) | Plant 
+##    Data: CO2 
+## 
+## Coefficients:
+##       Asym     lrc      c0
+## Qn1 38.140 -4.3806  51.223
+## Qn2 42.872 -4.6657  55.858
+## Qn3 44.228 -4.4861  54.650
+## Qc1 36.429 -4.8617  31.075
+## Qc3 40.684 -4.9452  35.089
+## Qc2 39.819 -4.4638  72.094
+## Mn3 28.483 -4.5916  46.972
+## Mn2 32.128 -4.4662  56.039
+## Mn1 34.085 -5.0646  36.408
+## Mc2 13.555 -4.5609  13.057
+## Mc3 18.535 -3.4652  67.849
+## Mc1 21.787 -5.1423 -20.400
+## 
+## Degrees of freedom: 84 total; 48 residual
+## Residual standard error: 1.7982</code></pre>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb668-1" data-line-number="1">(fm1CO2.nlme &lt;-<span class="st"> </span><span class="kw">nlme</span>(fm1CO2.lis))</a></code></pre></div>
+<pre><code>## Warning in (function (model, data = sys.frame(sys.parent()),
+## fixed, random, : Iteration 1, LME step: nlminb() did not converge
+## (code = 1). Do increase &#39;msMaxIter&#39;!</code></pre>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: uptake ~ SSasympOff(conc, Asym, lrc, c0) 
+##   Data: CO2 
+##   Log-likelihood: -201.31
+##   Fixed: list(Asym ~ 1, lrc ~ 1, c0 ~ 1) 
+##    Asym     lrc      c0 
+## 32.4738 -4.6362 43.5461 
+## 
+## Random effects:
+##  Formula: list(Asym ~ 1, lrc ~ 1, c0 ~ 1)
+##  Level: Plant
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##          StdDev   Corr         
+## Asym      9.51051 Asym   lrc   
+## lrc       0.12842 -0.162       
+## c0       10.37887  1.000 -0.141
+## Residual  1.76654              
+## 
+## Number of Observations: 84
+## Number of Groups: 12</code></pre>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb671-1" data-line-number="1">(fm2CO2.nlme &lt;-<span class="st"> </span><span class="kw">update</span>(fm1CO2.nlme, <span class="dt">random =</span> Asym <span class="op">+</span><span class="st"> </span>lrc <span class="op">~</span><span class="st"> </span><span class="dv">1</span>))</a></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: uptake ~ SSasympOff(conc, Asym, lrc, c0) 
+##   Data: CO2 
+##   Log-likelihood: -202.76
+##   Fixed: list(Asym ~ 1, lrc ~ 1, c0 ~ 1) 
+##    Asym     lrc      c0 
+## 32.4118 -4.5603 49.3436 
+## 
+## Random effects:
+##  Formula: list(Asym ~ 1, lrc ~ 1)
+##  Level: Plant
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##          StdDev  Corr  
+## Asym     9.65939 Asym  
+## lrc      0.19951 -0.777
+## Residual 1.80792       
+## 
+## Number of Observations: 84
+## Number of Groups: 12</code></pre>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb673-1" data-line-number="1"><span class="kw">anova</span>(fm1CO2.nlme, fm2CO2.nlme)</a></code></pre></div>
+<pre><code>##             Model df    AIC    BIC  logLik   Test L.Ratio
+## fm1CO2.nlme     1 10 422.62 446.93 -201.31               
+## fm2CO2.nlme     2  7 419.52 436.53 -202.76 1 vs 2  2.8955
+##             p-value
+## fm1CO2.nlme        
+## fm2CO2.nlme   0.408</code></pre>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb675-1" data-line-number="1"><span class="kw">plot</span>(fm2CO2.nlme,<span class="dt">id =</span> <span class="fl">0.05</span>,<span class="dt">cex =</span> <span class="fl">0.8</span>,<span class="dt">adj =</span> <span class="fl">-0.5</span>)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-15.png" width="672" /></p>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb676-1" data-line-number="1">fm2CO2.nlmeRE &lt;-<span class="st"> </span><span class="kw">ranef</span>(fm2CO2.nlme, <span class="dt">augFrame =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb676-2" data-line-number="2">fm2CO2.nlmeRE</a></code></pre></div>
+<pre><code>##          Asym        lrc        Type  Treatment conc uptake
+## Qn1   6.17160  0.0483620      Quebec nonchilled  435 33.229
+## Qn2  10.53259 -0.1728430      Quebec nonchilled  435 35.157
+## Qn3  12.21809 -0.0579871      Quebec nonchilled  435 37.614
+## Qc1   3.35212 -0.0755864      Quebec    chilled  435 29.971
+## Qc3   7.47431 -0.1924164      Quebec    chilled  435 32.586
+## Qc2   7.92847 -0.1803236      Quebec    chilled  435 32.700
+## Mn3  -4.07335  0.0334494 Mississippi nonchilled  435 24.114
+## Mn2  -0.14198  0.0056458 Mississippi nonchilled  435 27.343
+## Mn1   0.24066 -0.1938592 Mississippi nonchilled  435 26.400
+## Mc2 -18.79916  0.3193677 Mississippi    chilled  435 12.143
+## Mc3 -13.11682  0.2994289 Mississippi    chilled  435 17.300
+## Mc1 -11.78652  0.1667619 Mississippi    chilled  435 18.000</code></pre>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb678-1" data-line-number="1"><span class="kw">class</span>(fm2CO2.nlmeRE)</a></code></pre></div>
+<pre><code>## [1] &quot;ranef.lme&quot;  &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb680-1" data-line-number="1"><span class="kw">plot</span>(fm2CO2.nlmeRE, <span class="dt">form =</span> <span class="op">~</span><span class="st"> </span>Type <span class="op">*</span><span class="st"> </span>Treatment)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-16.png" width="672" /></p>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb681-1" data-line-number="1"><span class="kw">contrasts</span>(CO2<span class="op">$</span>Type)</a></code></pre></div>
+<pre><code>##             [,1]
+## Quebec        -1
+## Mississippi    1</code></pre>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb683-1" data-line-number="1"><span class="kw">contrasts</span>(CO2<span class="op">$</span>Treatment)</a></code></pre></div>
+<pre><code>##            [,1]
+## nonchilled   -1
+## chilled       1</code></pre>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb685-1" data-line-number="1">fm3CO2.nlme &lt;-<span class="st"> </span><span class="kw">update</span>(fm2CO2.nlme,</a>
+<a class="sourceLine" id="cb685-2" data-line-number="2">  <span class="dt">fixed =</span> <span class="kw">list</span>(Asym <span class="op">~</span><span class="st"> </span>Type <span class="op">*</span><span class="st"> </span>Treatment, lrc <span class="op">+</span><span class="st"> </span>c0 <span class="op">~</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb685-3" data-line-number="3">  <span class="dt">start =</span> <span class="kw">c</span>(<span class="fl">32.412</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">-4.5603</span>, <span class="fl">49.344</span>))</a>
+<a class="sourceLine" id="cb685-4" data-line-number="4"><span class="kw">summary</span>(fm3CO2.nlme)</a></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: uptake ~ SSasympOff(conc, Asym, lrc, c0) 
+##  Data: CO2 
+##      AIC    BIC  logLik
+##   393.68 417.98 -186.84
+## 
+## Random effects:
+##  Formula: list(Asym ~ 1, lrc ~ 1)
+##  Level: Plant
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##                  StdDev  Corr  
+## Asym.(Intercept) 2.92989 As.(I)
+## lrc              0.16374 -0.906
+## Residual         1.84956       
+## 
+## Fixed effects: list(Asym ~ Type * Treatment, lrc + c0 ~ 1) 
+##                        Value Std.Error DF t-value p-value
+## Asym.(Intercept)      32.447    0.9359 67  34.669  0.0000
+## Asym.Type1            -7.107    0.5981 67 -11.884  0.0000
+## Asym.Treatment1       -3.814    0.5884 67  -6.482  0.0000
+## Asym.Type1:Treatment1 -1.195    0.5885 67  -2.031  0.0462
+## lrc                   -4.589    0.0848 67 -54.105  0.0000
+## c0                    49.482    4.4566 67  11.103  0.0000
+##  Correlation: 
+##                       As.(I) Asym.Ty1 Asym.Tr1 A.T1:T lrc   
+## Asym.Type1            -0.044                                
+## Asym.Treatment1       -0.021  0.151                         
+## Asym.Type1:Treatment1 -0.023  0.161    0.225                
+## lrc                   -0.660  0.202    0.113    0.132       
+## c0                    -0.113  0.060    0.018    0.063  0.653
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -2.892938 -0.461602 -0.032803  0.520763  2.887703 
+## 
+## Number of Observations: 84
+## Number of Groups: 12</code></pre>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb687-1" data-line-number="1"><span class="kw">anova</span>(fm3CO2.nlme, <span class="dt">Terms =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>)</a></code></pre></div>
+<pre><code>## F-test for: Asym.Type, Asym.Treatment, Asym.Type:Treatment 
+##   numDF denDF F-value p-value
+## 1     3    67  54.818  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb689-1" data-line-number="1">fm3CO2.nlmeRE &lt;-<span class="st"> </span><span class="kw">ranef</span>(fm3CO2.nlme, <span class="dt">aug =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb689-2" data-line-number="2"><span class="kw">plot</span>(fm3CO2.nlmeRE, <span class="dt">form =</span> <span class="op">~</span><span class="st"> </span>Type <span class="op">*</span><span class="st"> </span>Treatment)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-17.png" width="672" /></p>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb690-1" data-line-number="1">fm3CO2.fix &lt;-<span class="st"> </span><span class="kw">fixef</span>(fm3CO2.nlme)</a>
+<a class="sourceLine" id="cb690-2" data-line-number="2">fm4CO2.nlme &lt;-<span class="st"> </span><span class="kw">update</span>(fm3CO2.nlme,</a>
+<a class="sourceLine" id="cb690-3" data-line-number="3">  <span class="dt">fixed =</span> <span class="kw">list</span>(Asym <span class="op">+</span><span class="st"> </span>lrc <span class="op">~</span><span class="st"> </span>Type <span class="op">*</span><span class="st"> </span>Treatment, c0 <span class="op">~</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb690-4" data-line-number="4">  <span class="dt">start =</span> <span class="kw">c</span>(fm3CO2.fix[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, fm3CO2.fix[<span class="dv">6</span>]))</a></code></pre></div>
+<pre><code>## Warning in (function (model, data = sys.frame(sys.parent()),
+## fixed, random, : Iteration 1, LME step: nlminb() did not converge
+## (code = 1). Do increase &#39;msMaxIter&#39;!</code></pre>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb692-1" data-line-number="1"><span class="kw">summary</span>(fm4CO2.nlme)</a></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: uptake ~ SSasympOff(conc, Asym, lrc, c0) 
+##  Data: CO2 
+##      AIC    BIC  logLik
+##   388.42 420.02 -181.21
+## 
+## Random effects:
+##  Formula: list(Asym ~ 1, lrc ~ 1)
+##  Level: Plant
+##  Structure: General positive-definite, Log-Cholesky parametrization
+##                  StdDev   Corr  
+## Asym.(Intercept) 2.349584 As.(I)
+## lrc.(Intercept)  0.079545 -0.92 
+## Residual         1.792030       
+## 
+## Fixed effects: list(Asym + lrc ~ Type * Treatment, c0 ~ 1) 
+##                        Value Std.Error DF t-value p-value
+## Asym.(Intercept)      32.342    0.7848 64  41.209  0.0000
+## Asym.Type1            -7.990    0.7785 64 -10.264  0.0000
+## Asym.Treatment1       -4.210    0.7781 64  -5.410  0.0000
+## Asym.Type1:Treatment1 -2.725    0.7780 64  -3.502  0.0008
+## lrc.(Intercept)       -4.509    0.0809 64 -55.745  0.0000
+## lrc.Type1              0.133    0.0552 64   2.417  0.0185
+## lrc.Treatment1         0.100    0.0551 64   1.812  0.0746
+## lrc.Type1:Treatment1   0.185    0.0554 64   3.345  0.0014
+## c0                    50.513    4.3647 64  11.573  0.0000
+##  Correlation: 
+##                       As.(I) Asym.Ty1 Asym.Tr1 A.T1:T lr.(I)
+## Asym.Type1            -0.017                                
+## Asym.Treatment1       -0.010 -0.017                         
+## Asym.Type1:Treatment1 -0.020 -0.006   -0.011                
+## lrc.(Intercept)       -0.471  0.004    0.001    0.009       
+## lrc.Type1             -0.048 -0.548   -0.005   -0.018  0.402
+## lrc.Treatment1        -0.031 -0.004   -0.551   -0.033  0.322
+## lrc.Type1:Treatment1  -0.026 -0.015   -0.032   -0.547  0.351
+## c0                    -0.133  0.038    0.020    0.019  0.735
+##                       lrc.Ty1 lrc.Tr1 l.T1:T
+## Asym.Type1                                  
+## Asym.Treatment1                             
+## Asym.Type1:Treatment1                       
+## lrc.(Intercept)                             
+## lrc.Type1                                   
+## lrc.Treatment1         0.375                
+## lrc.Type1:Treatment1   0.395   0.487        
+## c0                     0.104   0.083   0.140
+## 
+## Standardized Within-Group Residuals:
+##       Min        Q1       Med        Q3       Max 
+## -2.862148 -0.494306 -0.042384  0.566220  3.040308 
+## 
+## Number of Observations: 84
+## Number of Groups: 12</code></pre>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb694-1" data-line-number="1">fm5CO2.nlme &lt;-<span class="st"> </span><span class="kw">update</span>(fm4CO2.nlme, <span class="dt">random =</span> Asym <span class="op">~</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb694-2" data-line-number="2"><span class="kw">anova</span>(fm4CO2.nlme, fm5CO2.nlme)</a></code></pre></div>
+<pre><code>##             Model df    AIC    BIC  logLik   Test L.Ratio
+## fm4CO2.nlme     1 13 388.42 420.02 -181.21               
+## fm5CO2.nlme     2 11 387.06 413.79 -182.53 1 vs 2  2.6367
+##             p-value
+## fm4CO2.nlme        
+## fm5CO2.nlme  0.2676</code></pre>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb696-1" data-line-number="1">CO2<span class="op">$</span>type &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">as.integer</span>(CO2<span class="op">$</span>Type) <span class="op">-</span><span class="st"> </span><span class="fl">1.5</span>)</a>
+<a class="sourceLine" id="cb696-2" data-line-number="2">CO2<span class="op">$</span>treatment &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">as.integer</span>(CO2<span class="op">$</span>Treatment) <span class="op">-</span><span class="st"> </span><span class="fl">1.5</span>)</a>
+<a class="sourceLine" id="cb696-3" data-line-number="3">fm1CO2.nls &lt;-<span class="st"> </span><span class="kw">nls</span>(uptake <span class="op">~</span><span class="st"> </span><span class="kw">SSasympOff</span>(conc, Asym.Intercept <span class="op">+</span></a>
+<a class="sourceLine" id="cb696-4" data-line-number="4"><span class="st">  </span>Asym.Type <span class="op">*</span><span class="st"> </span>type <span class="op">+</span><span class="st"> </span>Asym.Treatment <span class="op">*</span><span class="st"> </span>treatment <span class="op">+</span></a>
+<a class="sourceLine" id="cb696-5" data-line-number="5"><span class="st">  </span>Asym.TypeTreatment <span class="op">*</span><span class="st"> </span>type <span class="op">*</span><span class="st"> </span>treatment, lrc.Intercept <span class="op">+</span></a>
+<a class="sourceLine" id="cb696-6" data-line-number="6"><span class="st">  </span>lrc.Type <span class="op">*</span><span class="st"> </span>type <span class="op">+</span><span class="st"> </span>lrc.Treatment <span class="op">*</span><span class="st"> </span>treatment <span class="op">+</span></a>
+<a class="sourceLine" id="cb696-7" data-line-number="7"><span class="st">  </span>lrc.TypeTreatment <span class="op">*</span><span class="st"> </span>type <span class="op">*</span><span class="st"> </span>treatment, c0), <span class="dt">data =</span> CO2,</a>
+<a class="sourceLine" id="cb696-8" data-line-number="8">  <span class="dt">start =</span> <span class="kw">c</span>(<span class="dt">Asym.Intercept =</span> <span class="fl">32.371</span>, <span class="dt">Asym.Type =</span> <span class="fl">-8.0086</span>,</a>
+<a class="sourceLine" id="cb696-9" data-line-number="9">    <span class="dt">Asym.Treatment =</span> <span class="fl">-4.2001</span>, <span class="dt">Asym.TypeTreatment =</span> <span class="fl">-2.7253</span>,</a>
+<a class="sourceLine" id="cb696-10" data-line-number="10">    <span class="dt">lrc.Intercept =</span> <span class="fl">-4.5267</span>, <span class="dt">lrc.Type =</span>  <span class="fl">0.13112</span>,</a>
+<a class="sourceLine" id="cb696-11" data-line-number="11">    <span class="dt">lrc.Treatment =</span> <span class="fl">0.093928</span>, <span class="dt">lrc.TypeTreatment =</span> <span class="fl">0.17941</span>,</a>
+<a class="sourceLine" id="cb696-12" data-line-number="12">    <span class="dt">c0 =</span> <span class="fl">50.126</span>))</a>
+<a class="sourceLine" id="cb696-13" data-line-number="13"><span class="kw">anova</span>(fm5CO2.nlme, fm1CO2.nls)</a></code></pre></div>
+<pre><code>##             Model df    AIC    BIC  logLik   Test L.Ratio
+## fm5CO2.nlme     1 11 387.06 413.79 -182.53               
+## fm1CO2.nls      2 10 418.34 442.65 -199.17 1 vs 2  33.289
+##             p-value
+## fm5CO2.nlme        
+## fm1CO2.nls   &lt;.0001</code></pre>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb698-1" data-line-number="1"><span class="co"># plot(augPred(fm5CO2.nlme, level = 0:1),  ## </span><span class="al">FIXME</span><span class="co">: problem with levels</span></a>
+<a class="sourceLine" id="cb698-2" data-line-number="2"><span class="co">#      layout = c(6,2))  ## Actually a problem with contrasts.</span></a>
+<a class="sourceLine" id="cb698-3" data-line-number="3">## This fit just ping-pongs.</a>
+<a class="sourceLine" id="cb698-4" data-line-number="4"><span class="co">#fm1Quin.nlme &lt;-</span></a>
+<a class="sourceLine" id="cb698-5" data-line-number="5"><span class="co">#  nlme(conc ~ quinModel(Subject, time, conc, dose, interval,</span></a>
+<a class="sourceLine" id="cb698-6" data-line-number="6"><span class="co">#                        lV, lKa, lCl),</span></a>
+<a class="sourceLine" id="cb698-7" data-line-number="7"><span class="co">#       data = Quinidine, fixed = lV + lKa + lCl ~ 1,</span></a>
+<a class="sourceLine" id="cb698-8" data-line-number="8"><span class="co">#       random = pdDiag(lV + lCl ~ 1), groups =  ~ Subject,</span></a>
+<a class="sourceLine" id="cb698-9" data-line-number="9"><span class="co">#       start = list(fixed = c(5, -0.3, 2)),</span></a>
+<a class="sourceLine" id="cb698-10" data-line-number="10"><span class="co">#       na.action = NULL, naPattern =  ~ !is.na(conc), verbose = TRUE)</span></a>
+<a class="sourceLine" id="cb698-11" data-line-number="11"><span class="co">#fm1Quin.nlme</span></a>
+<a class="sourceLine" id="cb698-12" data-line-number="12"><span class="co">#fm1Quin.nlmeRE &lt;- ranef(fm1Quin.nlme, aug = TRUE)</span></a>
+<a class="sourceLine" id="cb698-13" data-line-number="13"><span class="co">#fm1Quin.nlmeRE[1:3,]</span></a>
+<a class="sourceLine" id="cb698-14" data-line-number="14"><span class="co"># plot(fm1Quin.nlmeRE, form = lCl ~  Age + Smoke + Ethanol +  ## </span><span class="al">FIXME</span><span class="co">: problem in max</span></a>
+<a class="sourceLine" id="cb698-15" data-line-number="15"><span class="co">#      Weight + Race + Height + glyco + Creatinine + Heart,</span></a>
+<a class="sourceLine" id="cb698-16" data-line-number="16"><span class="co">#      control = list(cex.axis = 0.7))</span></a>
+<a class="sourceLine" id="cb698-17" data-line-number="17"><span class="co">#fm1Quin.fix &lt;- fixef(fm1Quin.nlme)</span></a>
+<a class="sourceLine" id="cb698-18" data-line-number="18"><span class="co">#fm2Quin.nlme &lt;- update(fm1Quin.nlme,</span></a>
+<a class="sourceLine" id="cb698-19" data-line-number="19"><span class="co">#  fixed = list(lCl ~ glyco, lKa + lV ~ 1),</span></a>
+<a class="sourceLine" id="cb698-20" data-line-number="20"><span class="co">#  start = c(fm1Quin.fix[3], 0, fm1Quin.fix[2:1]))</span></a>
+<a class="sourceLine" id="cb698-21" data-line-number="21">fm2Quin.nlme &lt;-</a>
+<a class="sourceLine" id="cb698-22" data-line-number="22"><span class="st">    </span><span class="kw">nlme</span>(conc <span class="op">~</span><span class="st"> </span><span class="kw">quinModel</span>(Subject, time, conc, dose, interval,</a>
+<a class="sourceLine" id="cb698-23" data-line-number="23">                          lV, lKa, lCl),</a>
+<a class="sourceLine" id="cb698-24" data-line-number="24">         <span class="dt">data =</span> Quinidine, <span class="dt">fixed =</span> <span class="kw">list</span>(lCl <span class="op">~</span><span class="st"> </span>glyco, lV <span class="op">+</span><span class="st"> </span>lKa <span class="op">~</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb698-25" data-line-number="25">         <span class="dt">random =</span> <span class="kw">pdDiag</span>(<span class="kw">diag</span>(<span class="kw">c</span>(<span class="fl">0.3</span>,<span class="fl">0.3</span>)), <span class="dt">form =</span> lV <span class="op">+</span><span class="st"> </span>lCl <span class="op">~</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb698-26" data-line-number="26">         <span class="dt">groups =</span>  <span class="op">~</span><span class="st"> </span>Subject,</a>
+<a class="sourceLine" id="cb698-27" data-line-number="27">         <span class="dt">start =</span> <span class="kw">list</span>(<span class="dt">fixed =</span> <span class="kw">c</span>(<span class="fl">2.5</span>, <span class="dv">0</span>, <span class="fl">5.4</span>, <span class="fl">-0.2</span>)),</a>
+<a class="sourceLine" id="cb698-28" data-line-number="28">         <span class="dt">na.action =</span> <span class="ot">NULL</span>, <span class="dt">naPattern =</span>  <span class="op">~</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(conc))</a>
+<a class="sourceLine" id="cb698-29" data-line-number="29"><span class="kw">summary</span>(fm2Quin.nlme)  <span class="co"># wrong values</span></a></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: conc ~ quinModel(Subject, time, conc, dose, interval, lV, lKa,      lCl) 
+##  Data: Quinidine 
+##      AIC    BIC  logLik
+##   892.07 919.29 -439.04
+## 
+## Random effects:
+##  Formula: list(lV ~ 1, lCl ~ 1)
+##  Level: Subject
+##  Structure: Diagonal
+##                lV lCl.(Intercept) Residual
+## StdDev: 0.0002627         0.27109  0.65106
+## 
+## Fixed effects: list(lCl ~ glyco, lV + lKa ~ 1) 
+##                   Value Std.Error  DF t-value p-value
+## lCl.(Intercept)  3.1248  0.065491 222  47.714   0.000
+## lCl.glyco       -0.5015  0.042816 222 -11.714   0.000
+## lV               5.2721  0.094795 222  55.616   0.000
+## lKa             -0.8436  0.303914 222  -2.776   0.006
+##  Correlation: 
+##           lC.(I) lCl.gl lV    
+## lCl.glyco -0.880              
+## lV        -0.072  0.027       
+## lKa       -0.272  0.149  0.538
+## 
+## Standardized Within-Group Residuals:
+##      Min       Q1      Med       Q3      Max 
+## -2.54585 -0.53423 -0.02214  0.50534  3.50158 
+## 
+## Number of Observations: 361
+## Number of Groups: 136</code></pre>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb700-1" data-line-number="1"><span class="kw">options</span>(<span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="st">&quot;contr.treatment&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</a>
+<a class="sourceLine" id="cb700-2" data-line-number="2">fm2Quin.fix &lt;-<span class="st"> </span><span class="kw">fixef</span>(fm2Quin.nlme)</a>
+<a class="sourceLine" id="cb700-3" data-line-number="3">## subsequent fits don&#39;t work</a>
+<a class="sourceLine" id="cb700-4" data-line-number="4"><span class="co">#fm3Quin.nlme &lt;- update(fm2Quin.nlme,</span></a>
+<a class="sourceLine" id="cb700-5" data-line-number="5"><span class="co">#  fixed = list(lCl ~ glyco + Creatinine, lKa + lV ~ 1),</span></a>
+<a class="sourceLine" id="cb700-6" data-line-number="6"><span class="co">#  start = c(fm2Quin.fix[1:2], 0.2, fm2Quin.fix[3:4]))</span></a>
+<a class="sourceLine" id="cb700-7" data-line-number="7"><span class="co">#summary(fm3Quin.nlme)</span></a>
+<a class="sourceLine" id="cb700-8" data-line-number="8"><span class="co">#fm3Quin.fix &lt;- fixef(fm3Quin.nlme)</span></a>
+<a class="sourceLine" id="cb700-9" data-line-number="9"><span class="co">#fm4Quin.nlme &lt;- update(fm3Quin.nlme,</span></a>
+<a class="sourceLine" id="cb700-10" data-line-number="10"><span class="co">#  fixed = list(lCl ~ glyco + Creatinine + Weight, lKa + lV ~ 1),</span></a>
+<a class="sourceLine" id="cb700-11" data-line-number="11"><span class="co">#  start = c(fm3Quin.fix[1:3], 0, fm3Quin.fix[4:5]))</span></a>
+<a class="sourceLine" id="cb700-12" data-line-number="12"><span class="co">#summary(fm4Quin.nlme)</span></a>
+<a class="sourceLine" id="cb700-13" data-line-number="13">## This fit just ping-pongs</a>
+<a class="sourceLine" id="cb700-14" data-line-number="14">##fm1Wafer.nlmeR &lt;-</a>
+<a class="sourceLine" id="cb700-15" data-line-number="15">##    nlme(current ~ A + B * cos(4.5679 * voltage) +</a>
+<a class="sourceLine" id="cb700-16" data-line-number="16">##         C * sin(4.5679 * voltage), data = Wafer,</a>
+<a class="sourceLine" id="cb700-17" data-line-number="17">##         fixed = list(A ~ voltage + I(voltage^2), B + C ~ 1),</a>
+<a class="sourceLine" id="cb700-18" data-line-number="18">##         random = list(Wafer = A ~ voltage + I(voltage^2),</a>
+<a class="sourceLine" id="cb700-19" data-line-number="19">##         Site = pdBlocked(list(A~1, A~voltage+I(voltage^2)-1))),</a>
+<a class="sourceLine" id="cb700-20" data-line-number="20">###  start = fixef(fm4Wafer), method = &quot;REML&quot;, control = list(tolerance=1e-2))</a>
+<a class="sourceLine" id="cb700-21" data-line-number="21">##         start = c(-4.255, 5.622, 1.258, -0.09555, 0.10434),</a>
+<a class="sourceLine" id="cb700-22" data-line-number="22">##         method = &quot;REML&quot;, control = list(tolerance = 1e-2))</a>
+<a class="sourceLine" id="cb700-23" data-line-number="23">##fm1Wafer.nlmeR</a>
+<a class="sourceLine" id="cb700-24" data-line-number="24">##fm1Wafer.nlme &lt;- update(fm1Wafer.nlmeR, method = &quot;ML&quot;)</a>
+<a class="sourceLine" id="cb700-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb700-26" data-line-number="26">(fm2Wafer.nlme &lt;-</a>
+<a class="sourceLine" id="cb700-27" data-line-number="27"><span class="st"> </span><span class="kw">nlme</span>(current <span class="op">~</span><span class="st"> </span>A <span class="op">+</span><span class="st"> </span>B <span class="op">*</span><span class="st"> </span><span class="kw">cos</span>(w <span class="op">*</span><span class="st"> </span>voltage <span class="op">+</span><span class="st"> </span>pi<span class="op">/</span><span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb700-28" data-line-number="28">      <span class="dt">data =</span> Wafer,</a>
+<a class="sourceLine" id="cb700-29" data-line-number="29">      <span class="dt">fixed =</span> <span class="kw">list</span>(A <span class="op">~</span><span class="st"> </span>voltage <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(voltage<span class="op">^</span><span class="dv">2</span>), B <span class="op">+</span><span class="st"> </span>w <span class="op">~</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb700-30" data-line-number="30">      <span class="dt">random =</span> <span class="kw">list</span>(<span class="dt">Wafer =</span> <span class="kw">pdDiag</span>(<span class="kw">list</span>(A <span class="op">~</span><span class="st"> </span>voltage <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(voltage<span class="op">^</span><span class="dv">2</span>), B <span class="op">+</span><span class="st"> </span>w <span class="op">~</span><span class="st"> </span><span class="dv">1</span>)),</a>
+<a class="sourceLine" id="cb700-31" data-line-number="31">      <span class="dt">Site =</span> <span class="kw">pdDiag</span>(<span class="kw">list</span>(A <span class="op">~</span><span class="st"> </span>voltage<span class="op">+</span><span class="kw">I</span>(voltage<span class="op">^</span><span class="dv">2</span>), B <span class="op">~</span><span class="st"> </span><span class="dv">1</span>))),</a>
+<a class="sourceLine" id="cb700-32" data-line-number="32">      <span class="dt">start =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">4.255</span>, <span class="fl">5.622</span>, <span class="fl">1.258</span>, <span class="fl">-0.09555</span>, <span class="fl">4.5679</span>)))</a></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: current ~ A + B * cos(w * voltage + pi/4) 
+##   Data: Wafer 
+##   Log-likelihood: 662.75
+##   Fixed: list(A ~ voltage + I(voltage^2), B + w ~ 1) 
+##  A.(Intercept)      A.voltage A.I(voltage^2)              B 
+##       -4.26538        5.63310        1.25595       -0.14064 
+##              w 
+##        4.59331 
+## 
+## Random effects:
+##  Formula: list(A ~ voltage + I(voltage^2), B ~ 1, w ~ 1)
+##  Level: Wafer
+##  Structure: Diagonal
+##         A.(Intercept) A.voltage A.I(voltage^2)         B
+## StdDev:       0.12699   0.33706        0.04883 0.0050593
+##                  w
+## StdDev: 5.4811e-05
+## 
+##  Formula: list(A ~ voltage + I(voltage^2), B ~ 1)
+##  Level: Site %in% Wafer
+##  Structure: Diagonal
+##         A.(Intercept) A.voltage A.I(voltage^2)          B
+## StdDev:      0.061831   0.26875       0.055905 4.4861e-06
+##          Residual
+## StdDev: 0.0078558
+## 
+## Number of Observations: 400
+## Number of Groups: 
+##           Wafer Site %in% Wafer 
+##              10              80</code></pre>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb702-1" data-line-number="1"><span class="kw">plot</span>(fm2Wafer.nlme, <span class="kw">resid</span>(.) <span class="op">~</span><span class="st"> </span>voltage <span class="op">|</span><span class="st"> </span>Wafer,</a>
+<a class="sourceLine" id="cb702-2" data-line-number="2">     <span class="dt">panel =</span> <span class="cf">function</span>(x, y, ...) {</a>
+<a class="sourceLine" id="cb702-3" data-line-number="3">         <span class="kw">panel.grid</span>()</a>
+<a class="sourceLine" id="cb702-4" data-line-number="4">         <span class="kw">panel.xyplot</span>(x, y)</a>
+<a class="sourceLine" id="cb702-5" data-line-number="5">         <span class="kw">panel.loess</span>(x, y, <span class="dt">lty =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb702-6" data-line-number="6">         <span class="kw">panel.abline</span>(<span class="dv">0</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb702-7" data-line-number="7">     })</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-18.png" width="672" /></p>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb703-1" data-line-number="1">## anova(fm1Wafer.nlme, fm2Wafer.nlme, test = FALSE)</a>
+<a class="sourceLine" id="cb703-2" data-line-number="2"><span class="co"># intervals(fm2Wafer.nlme)</span></a>
+<a class="sourceLine" id="cb703-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb703-4" data-line-number="4"><span class="co"># 8.3  Extending the Basic nlme Model</span></a>
+<a class="sourceLine" id="cb703-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb703-6" data-line-number="6"><span class="co">#fm4Theo.nlme &lt;- update(fm3Theo.nlme,</span></a>
+<a class="sourceLine" id="cb703-7" data-line-number="7"><span class="co">#   weights = varConstPower(power = 0.1))</span></a>
+<a class="sourceLine" id="cb703-8" data-line-number="8"><span class="co"># this fit is way off</span></a>
+<a class="sourceLine" id="cb703-9" data-line-number="9"><span class="co">#fm4Theo.nlme</span></a>
+<a class="sourceLine" id="cb703-10" data-line-number="10"><span class="co">#anova(fm3Theo.nlme, fm4Theo.nlme)</span></a>
+<a class="sourceLine" id="cb703-11" data-line-number="11"><span class="co">#plot(fm4Theo.nlme)</span></a>
+<a class="sourceLine" id="cb703-12" data-line-number="12">## xlim used to hide an unusually high fitted value and enhance</a>
+<a class="sourceLine" id="cb703-13" data-line-number="13">## visualization of the heteroscedastic pattern</a>
+<a class="sourceLine" id="cb703-14" data-line-number="14"><span class="co"># plot(fm4Quin.nlme, xlim = c(0, 6.2))</span></a>
+<a class="sourceLine" id="cb703-15" data-line-number="15"><span class="co">#fm5Quin.nlme &lt;- update(fm4Quin.nlme, weights = varPower())</span></a>
+<a class="sourceLine" id="cb703-16" data-line-number="16"><span class="co">#summary(fm5Quin.nlme)</span></a>
+<a class="sourceLine" id="cb703-17" data-line-number="17"><span class="co">#anova(fm4Quin.nlme, fm5Quin.nlme)</span></a>
+<a class="sourceLine" id="cb703-18" data-line-number="18"><span class="co">#plot(fm5Quin.nlme, xlim = c(0, 6.2))</span></a>
+<a class="sourceLine" id="cb703-19" data-line-number="19">var.nlme &lt;-<span class="st"> </span><span class="kw">nlme</span>(follicles <span class="op">~</span><span class="st"> </span>A <span class="op">+</span><span class="st"> </span>B <span class="op">*</span><span class="st"> </span><span class="kw">sin</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>w <span class="op">*</span><span class="st"> </span>Time) <span class="op">+</span></a>
+<a class="sourceLine" id="cb703-20" data-line-number="20"><span class="st">                     </span>C <span class="op">*</span><span class="st"> </span><span class="kw">cos</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>w <span class="op">*</span>Time), <span class="dt">data =</span> Ovary,</a>
+<a class="sourceLine" id="cb703-21" data-line-number="21">                     <span class="dt">fixed =</span> A <span class="op">+</span><span class="st"> </span>B <span class="op">+</span><span class="st"> </span>C <span class="op">+</span><span class="st"> </span>w <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">random =</span> <span class="kw">pdDiag</span>(A <span class="op">+</span><span class="st"> </span>B <span class="op">+</span><span class="st"> </span>w <span class="op">~</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb703-22" data-line-number="22">                                    <span class="co">#  start = c(fixef(fm5Ovar.lme), 1))</span></a>
+<a class="sourceLine" id="cb703-23" data-line-number="23">                     <span class="dt">start =</span> <span class="kw">c</span>(<span class="fl">12.18</span>, <span class="fl">-3.298</span>, <span class="fl">-0.862</span>, <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb703-24" data-line-number="24">##fm1Ovar.nlme</a>
+<a class="sourceLine" id="cb703-25" data-line-number="25">##ACF(fm1Ovar.nlme)</a>
+<a class="sourceLine" id="cb703-26" data-line-number="26">##plot(ACF(fm1Ovar.nlme,  maxLag = 10), alpha = 0.05)</a>
+<a class="sourceLine" id="cb703-27" data-line-number="27">##fm2Ovar.nlme &lt;- update(fm1Ovar.nlme, correlation = corAR1(0.311))</a>
+<a class="sourceLine" id="cb703-28" data-line-number="28">##fm3Ovar.nlme &lt;- update(fm1Ovar.nlme, correlation = corARMA(p=0, q=2))</a>
+<a class="sourceLine" id="cb703-29" data-line-number="29">##anova(fm2Ovar.nlme, fm3Ovar.nlme, test = FALSE)</a>
+<a class="sourceLine" id="cb703-30" data-line-number="30">##intervals(fm2Ovar.nlme)</a>
+<a class="sourceLine" id="cb703-31" data-line-number="31">##fm4Ovar.nlme &lt;- update(fm2Ovar.nlme, random = A ~ 1)</a>
+<a class="sourceLine" id="cb703-32" data-line-number="32">##anova(fm2Ovar.nlme, fm4Ovar.nlme)</a>
+<a class="sourceLine" id="cb703-33" data-line-number="33">##if (interactive()) fm5Ovar.nlme &lt;- update(fm4Ovar.nlme, correlation = corARMA(p=1, q=1))</a>
+<a class="sourceLine" id="cb703-34" data-line-number="34"><span class="co"># anova(fm4Ovar.nlme, fm5Ovar.nlme)</span></a>
+<a class="sourceLine" id="cb703-35" data-line-number="35"><span class="co"># plot(ACF(fm5Ovar.nlme,  maxLag = 10, resType = &quot;n&quot;),</span></a>
+<a class="sourceLine" id="cb703-36" data-line-number="36"><span class="co">#        alpha = 0.05)</span></a>
+<a class="sourceLine" id="cb703-37" data-line-number="37"><span class="co"># fm5Ovar.lmeML &lt;- update(fm5Ovar.lme, method = &quot;ML&quot;)</span></a>
+<a class="sourceLine" id="cb703-38" data-line-number="38"><span class="co"># intervals(fm5Ovar.lmeML)</span></a>
+<a class="sourceLine" id="cb703-39" data-line-number="39"><span class="co"># fm6Ovar.lmeML &lt;- update(fm5Ovar.lmeML, random = ~1)</span></a>
+<a class="sourceLine" id="cb703-40" data-line-number="40"><span class="co"># anova(fm5Ovar.lmeML, fm6Ovar.lmeML)</span></a>
+<a class="sourceLine" id="cb703-41" data-line-number="41"><span class="co"># anova(fm6Ovar.lmeML, fm5Ovar.nlme)</span></a>
+<a class="sourceLine" id="cb703-42" data-line-number="42"><span class="co"># intervals(fm5Ovar.nlme, which = &quot;fixed&quot;)</span></a>
+<a class="sourceLine" id="cb703-43" data-line-number="43">fm1Dial.lis &lt;-</a>
+<a class="sourceLine" id="cb703-44" data-line-number="44"><span class="st">  </span><span class="kw">nlsList</span>(rate <span class="op">~</span><span class="st"> </span><span class="kw">SSasympOff</span>(pressure, Asym, lrc, c0) <span class="op">|</span><span class="st"> </span>QB,</a>
+<a class="sourceLine" id="cb703-45" data-line-number="45">           <span class="dt">data =</span> Dialyzer)</a>
+<a class="sourceLine" id="cb703-46" data-line-number="46">fm1Dial.lis</a></code></pre></div>
+<pre><code>## Call:
+##   Model: rate ~ SSasympOff(pressure, Asym, lrc, c0) | QB 
+##    Data: Dialyzer 
+## 
+## Coefficients:
+##       Asym     lrc      c0
+## 200 44.989 0.76486 0.22424
+## 300 62.217 0.25282 0.22484
+## 
+## Degrees of freedom: 140 total; 134 residual
+## Residual standard error: 3.8043</code></pre>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb705-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">intervals</span>(fm1Dial.lis))</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-19.png" width="672" /></p>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb706-1" data-line-number="1">fm1Dial.gnls &lt;-<span class="st"> </span><span class="kw">gnls</span>(rate <span class="op">~</span><span class="st"> </span><span class="kw">SSasympOff</span>(pressure, Asym, lrc, c0),</a>
+<a class="sourceLine" id="cb706-2" data-line-number="2">  <span class="dt">data =</span> Dialyzer, <span class="dt">params =</span> <span class="kw">list</span>(Asym <span class="op">+</span><span class="st"> </span>lrc <span class="op">~</span><span class="st"> </span>QB, c0 <span class="op">~</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb706-3" data-line-number="3">  <span class="dt">start =</span> <span class="kw">c</span>(<span class="fl">53.6</span>, <span class="fl">8.6</span>, <span class="fl">0.51</span>, <span class="fl">-0.26</span>, <span class="fl">0.225</span>))</a>
+<a class="sourceLine" id="cb706-4" data-line-number="4">fm1Dial.gnls</a></code></pre></div>
+<pre><code>## Generalized nonlinear least squares fit
+##   Model: rate ~ SSasympOff(pressure, Asym, lrc, c0) 
+##   Data: Dialyzer 
+##   Log-likelihood: -382.65
+## 
+## Coefficients:
+## Asym.(Intercept)       Asym.QB300  lrc.(Intercept) 
+##         44.98645         17.24009          0.76558 
+##        lrc.QB300               c0 
+##         -0.51368          0.22449 
+## 
+## Degrees of freedom: 140 total; 135 residual
+## Residual standard error: 3.7902</code></pre>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb708-1" data-line-number="1">Dialyzer<span class="op">$</span>QBcontr &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(Dialyzer<span class="op">$</span>QB <span class="op">==</span><span class="st"> </span><span class="dv">300</span>) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb708-2" data-line-number="2">fm1Dial.nls &lt;-</a>
+<a class="sourceLine" id="cb708-3" data-line-number="3"><span class="st">  </span><span class="kw">nls</span>(rate <span class="op">~</span><span class="st"> </span><span class="kw">SSasympOff</span>(pressure, Asym.Int <span class="op">+</span><span class="st"> </span>Asym.QB <span class="op">*</span><span class="st"> </span>QBcontr,</a>
+<a class="sourceLine" id="cb708-4" data-line-number="4">  lrc.Int <span class="op">+</span><span class="st"> </span>lrc.QB <span class="op">*</span><span class="st"> </span>QBcontr, c0), <span class="dt">data =</span> Dialyzer,</a>
+<a class="sourceLine" id="cb708-5" data-line-number="5">  <span class="dt">start =</span> <span class="kw">c</span>(<span class="dt">Asym.Int =</span> <span class="fl">53.6</span>, <span class="dt">Asym.QB =</span> <span class="fl">8.6</span>, <span class="dt">lrc.Int =</span> <span class="fl">0.51</span>,</a>
+<a class="sourceLine" id="cb708-6" data-line-number="6">  <span class="dt">lrc.QB =</span> <span class="fl">-0.26</span>, <span class="dt">c0 =</span> <span class="fl">0.225</span>))</a>
+<a class="sourceLine" id="cb708-7" data-line-number="7"><span class="kw">summary</span>(fm1Dial.nls)</a></code></pre></div>
+<pre><code>## 
+## Formula: rate ~ SSasympOff(pressure, Asym.Int + Asym.QB * QBcontr, lrc.Int + 
+##     lrc.QB * QBcontr, c0)
+## 
+## Parameters:
+##          Estimate Std. Error t value Pr(&gt;|t|)    
+## Asym.Int  53.6065     0.7054   75.99  &lt; 2e-16 ***
+## Asym.QB    8.6201     0.6792   12.69  &lt; 2e-16 ***
+## lrc.Int    0.5087     0.0552    9.21  5.5e-16 ***
+## lrc.QB    -0.2568     0.0450   -5.70  7.0e-08 ***
+## c0         0.2245     0.0106   21.13  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.79 on 135 degrees of freedom
+## 
+## Number of iterations to convergence: 4 
+## Achieved convergence tolerance: 7.26e-06</code></pre>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb710-1" data-line-number="1"><span class="kw">logLik</span>(fm1Dial.nls)</a></code></pre></div>
+<pre><code>## &#39;log Lik.&#39; -382.65 (df=6)</code></pre>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb712-1" data-line-number="1"><span class="kw">plot</span>(fm1Dial.gnls, <span class="kw">resid</span>(.) <span class="op">~</span><span class="st"> </span>pressure, <span class="dt">abline =</span> <span class="dv">0</span>)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-20.png" width="672" /></p>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb713-1" data-line-number="1">fm2Dial.gnls &lt;-<span class="st"> </span><span class="kw">update</span>(fm1Dial.gnls,</a>
+<a class="sourceLine" id="cb713-2" data-line-number="2">                       <span class="dt">weights =</span> <span class="kw">varPower</span>(<span class="dt">form =</span> <span class="op">~</span><span class="st"> </span>pressure))</a>
+<a class="sourceLine" id="cb713-3" data-line-number="3"><span class="kw">anova</span>(fm1Dial.gnls, fm2Dial.gnls)</a></code></pre></div>
+<pre><code>##              Model df    AIC    BIC  logLik   Test L.Ratio
+## fm1Dial.gnls     1  6 777.29 794.94 -382.65               
+## fm2Dial.gnls     2  7 748.47 769.07 -367.24 1 vs 2  30.815
+##              p-value
+## fm1Dial.gnls        
+## fm2Dial.gnls  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb715-1" data-line-number="1"><span class="kw">ACF</span>(fm2Dial.gnls, <span class="dt">form =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject)</a></code></pre></div>
+<pre><code>##   lag        ACF
+## 1   0  1.0000000
+## 2   1  0.7156705
+## 3   2  0.5045422
+## 4   3  0.2948121
+## 5   4  0.2097493
+## 6   5  0.1385694
+## 7   6 -0.0020188</code></pre>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb717-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">ACF</span>(fm2Dial.gnls, <span class="dt">form =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject), <span class="dt">alpha =</span> <span class="fl">0.05</span>)</a></code></pre></div>
+<p><img src="assets/unnamed-chunk-7-21.png" width="672" /></p>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb718-1" data-line-number="1">fm3Dial.gnls &lt;-</a>
+<a class="sourceLine" id="cb718-2" data-line-number="2"><span class="st"> </span><span class="kw">update</span>(fm2Dial.gnls, <span class="dt">corr =</span> <span class="kw">corAR1</span>(<span class="fl">0.716</span>, <span class="dt">form =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject))</a>
+<a class="sourceLine" id="cb718-3" data-line-number="3">fm3Dial.gnls</a></code></pre></div>
+<pre><code>## Generalized nonlinear least squares fit
+##   Model: rate ~ SSasympOff(pressure, Asym, lrc, c0) 
+##   Data: Dialyzer 
+##   Log-likelihood: -322.52
+## 
+## Coefficients:
+## Asym.(Intercept)       Asym.QB300  lrc.(Intercept) 
+##         46.91103         16.39980          0.54166 
+##        lrc.QB300               c0 
+##         -0.33947          0.21478 
+## 
+## Correlation Structure: AR(1)
+##  Formula: ~1 | Subject 
+##  Parameter estimate(s):
+##     Phi 
+## 0.74441 
+## Variance function:
+##  Structure: Power of variance covariate
+##  Formula: ~pressure 
+##  Parameter estimates:
+##   power 
+## 0.57232 
+## Degrees of freedom: 140 total; 135 residual
+## Residual standard error: 3.1845</code></pre>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb720-1" data-line-number="1"><span class="kw">intervals</span>(fm3Dial.gnls)</a></code></pre></div>
+<pre><code>## Approximate 95% confidence intervals
+## 
+##  Coefficients:
+##                     lower     est.    upper
+## Asym.(Intercept) 43.87664 46.91103 49.94542
+## Asym.QB300       11.63269 16.39980 21.16690
+## lrc.(Intercept)   0.43527  0.54166  0.64806
+## lrc.QB300        -0.48743 -0.33947 -0.19151
+## c0                0.20637  0.21478  0.22318
+## attr(,&quot;label&quot;)
+## [1] &quot;Coefficients:&quot;
+## 
+##  Correlation structure:
+##       lower    est.   upper
+## Phi 0.62176 0.74441 0.83143
+## attr(,&quot;label&quot;)
+## [1] &quot;Correlation structure:&quot;
+## 
+##  Variance function:
+##         lower    est.   upper
+## power 0.44262 0.57232 0.70201
+## attr(,&quot;label&quot;)
+## [1] &quot;Variance function:&quot;
+## 
+##  Residual standard error:
+##  lower   est.  upper 
+## 2.5923 3.1271 3.7722</code></pre>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb722-1" data-line-number="1"><span class="kw">anova</span>(fm2Dial.gnls, fm3Dial.gnls)</a></code></pre></div>
+<pre><code>##              Model df    AIC    BIC  logLik   Test L.Ratio
+## fm2Dial.gnls     1  7 748.47 769.07 -367.24               
+## fm3Dial.gnls     2  8 661.04 684.58 -322.52 1 vs 2  89.433
+##              p-value
+## fm2Dial.gnls        
+## fm3Dial.gnls  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb724-1" data-line-number="1"><span class="co"># restore two fitted models</span></a>
+<a class="sourceLine" id="cb724-2" data-line-number="2">fm2Dial.lme &lt;-</a>
+<a class="sourceLine" id="cb724-3" data-line-number="3"><span class="st">  </span><span class="kw">lme</span>(rate <span class="op">~</span>(pressure <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(pressure<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(pressure<span class="op">^</span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(pressure<span class="op">^</span><span class="dv">4</span>))<span class="op">*</span>QB,</a>
+<a class="sourceLine" id="cb724-4" data-line-number="4">      Dialyzer, <span class="op">~</span><span class="st"> </span>pressure <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(pressure<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb724-5" data-line-number="5">      <span class="dt">weights =</span> <span class="kw">varPower</span>(<span class="dt">form =</span> <span class="op">~</span><span class="st"> </span>pressure))</a>
+<a class="sourceLine" id="cb724-6" data-line-number="6">fm2Dial.lmeML &lt;-<span class="st"> </span><span class="kw">update</span>(fm2Dial.lme, <span class="dt">method =</span> <span class="st">&quot;ML&quot;</span>)</a>
+<a class="sourceLine" id="cb724-7" data-line-number="7">fm3Dial.gls &lt;-</a>
+<a class="sourceLine" id="cb724-8" data-line-number="8"><span class="st">  </span><span class="kw">gls</span>(rate <span class="op">~</span>(pressure <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(pressure<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(pressure<span class="op">^</span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(pressure<span class="op">^</span><span class="dv">4</span>))<span class="op">*</span>QB,</a>
+<a class="sourceLine" id="cb724-9" data-line-number="9">      Dialyzer, <span class="dt">weights =</span> <span class="kw">varPower</span>(<span class="dt">form =</span> <span class="op">~</span><span class="st"> </span>pressure),</a>
+<a class="sourceLine" id="cb724-10" data-line-number="10">      <span class="dt">corr =</span> <span class="kw">corAR1</span>(<span class="fl">0.771</span>, <span class="dt">form =</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>Subject))</a>
+<a class="sourceLine" id="cb724-11" data-line-number="11">fm3Dial.glsML &lt;-<span class="st"> </span><span class="kw">update</span>(fm3Dial.gls, <span class="dt">method =</span> <span class="st">&quot;ML&quot;</span>)</a>
+<a class="sourceLine" id="cb724-12" data-line-number="12"><span class="kw">anova</span>( fm2Dial.lmeML, fm3Dial.glsML, fm3Dial.gnls, <span class="dt">test =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>##               Model df    AIC    BIC  logLik
+## fm2Dial.lmeML     1 18 651.75 704.70 -307.87
+## fm3Dial.glsML     2 13 647.56 685.80 -310.78
+## fm3Dial.gnls      3  8 661.04 684.58 -322.52</code></pre>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb726-1" data-line-number="1"><span class="co"># cleanup</span></a>
+<a class="sourceLine" id="cb726-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb726-3" data-line-number="3"><span class="kw">proc.time</span>()</a></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   91.13    3.15  101.68</code></pre>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chapter-6.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
