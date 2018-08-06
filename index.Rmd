@@ -1,5 +1,6 @@
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(error = TRUE, cache = TRUE, fig.path='assets/')
+#, results = 'asis')
 ```
 
 
@@ -32,6 +33,10 @@ knitr::opts_chunk$set(error = TRUE, cache = TRUE, fig.path='assets/')
 
 ```{r, code = readLines('R/ch06.R')}
 ```
+
+# Chapter 7
+
+No scripts.
 
 # Chapter 8
 

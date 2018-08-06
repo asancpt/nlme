@@ -131,7 +131,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="chapter-4.html"><a href="chapter-4.html"><i class="fa fa-check"></i><b>4</b> Chapter 4</a></li>
 <li class="chapter" data-level="5" data-path="chapter-5.html"><a href="chapter-5.html"><i class="fa fa-check"></i><b>5</b> Chapter 5</a></li>
 <li class="chapter" data-level="6" data-path="chapter-6.html"><a href="chapter-6.html"><i class="fa fa-check"></i><b>6</b> Chapter 6</a></li>
-<li class="chapter" data-level="7" data-path="chapter-8.html"><a href="chapter-8.html"><i class="fa fa-check"></i><b>7</b> Chapter 8</a></li>
+<li class="chapter" data-level="7" data-path="chapter-7.html"><a href="chapter-7.html"><i class="fa fa-check"></i><b>7</b> Chapter 7</a></li>
+<li class="chapter" data-level="8" data-path="chapter-8.html"><a href="chapter-8.html"><i class="fa fa-check"></i><b>8</b> Chapter 8</a></li>
 </ul>
 
       </nav>
@@ -214,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">PBG.log &lt;-<span class="st"> </span><span class="kw">update</span>( PBG, <span class="dt">formula =</span> deltaBP <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(dose) <span class="op">|</span><span class="st"> </span>Rabbit )</a>
 <a class="sourceLine" id="cb192-2" data-line-number="2"><span class="kw">formula</span>(PBG.log)</a></code></pre></div>
 <pre><code>## deltaBP ~ log(dose) | Rabbit
-## &lt;environment: 0x00000000105833e0&gt;</code></pre>
+## &lt;environment: 0x000000001040b980&gt;</code></pre>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getCovariate</span>(PBG.log) )</a></code></pre></div>
 <pre><code>## [1] 1.8326 2.5257 3.2189 3.9120 4.6052 5.2983</code></pre>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="kw">unique</span>( <span class="kw">getCovariate</span>(PBG) )</a></code></pre></div>
@@ -908,7 +909,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb275-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb275-3" data-line-number="3"><span class="kw">proc.time</span>()</a></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   32.26    1.23   35.81</code></pre>
+##   32.26    1.24   35.69</code></pre>
 </div>
             </section>
 
